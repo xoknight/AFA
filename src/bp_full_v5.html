@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>非快达 AFA · 种子轮融资计划书（详细版）</title>
+<style>
+  @page { size: 1280px 720px; margin: 0; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:"Noto Sans CJK SC","Noto Sans SC",sans-serif; color:#16202e; }
+  .slide { width:1280px; height:720px; page-break-after:always; position:relative; overflow:hidden; background:#fff; }
+  .slide:last-child { page-break-after:auto; }
+  .bg-navy { background:#0d1b2e url(file:///home/claude/maps/pattern.svg); background-size:400px; color:#f5f2ec; }
+  .bg-sand { background:#faf7f1; }
+  .head { padding:52px 70px 0 70px; }
+  .kicker { font-size:13px; letter-spacing:5px; color:#e8862e; font-weight:800; text-transform:uppercase; margin-bottom:12px;}
+  h2.title { font-size:38px; font-weight:900; color:#0d1b2e; line-height:1.22; letter-spacing:0.5px;}
+  .sub { font-size:16px; color:#5b6675; margin-top:12px; line-height:1.65; max-width:1020px;}
+  .pageno { position:absolute; bottom:26px; right:44px; font-size:12px; color:#9aa4b2; letter-spacing:1px;}
+  .brandline { position:absolute; bottom:26px; left:70px; font-size:12px; color:#9aa4b2; letter-spacing:2.5px;}
+  .cardrow { display:flex; gap:22px; padding:0 70px; margin-top:34px;}
+  .card { flex:1; background:#f7f5f0; border-radius:16px; padding:26px 26px 22px 26px; border-top:5px solid #e8862e;}
+  .bg-sand .card { background:#fff; box-shadow:0 3px 14px rgba(13,27,46,.06);}
+  .card .num { font-size:42px; font-weight:900; color:#0d1b2e; letter-spacing:-1px; line-height:1.1;}
+  .card .num small { font-size:20px; font-weight:800;}
+  .card .lab { font-size:14px; color:#4c5665; margin-top:10px; line-height:1.6;}
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:24px; padding:0 70px; margin-top:30px;}
+  .grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:22px; padding:0 70px; margin-top:30px;}
+  .panel { background:#f7f5f0; border-radius:16px; padding:24px 28px;}
+  .bg-sand .panel { background:#fff; box-shadow:0 3px 14px rgba(13,27,46,.06);}
+  .panel h4 { font-size:18px; font-weight:900; color:#0d1b2e; margin-bottom:12px;}
+  .panel p, .panel li { font-size:14px; color:#3c4656; line-height:1.8;}
+  .panel ul { list-style:none;}
+  .panel li { padding-left:17px; position:relative; margin-bottom:8px;}
+  .panel li:before { content:""; position:absolute; left:0; top:10px; width:7px; height:7px; border-radius:2px; background:#e8862e;}
+  table.t { width:100%; border-collapse:collapse; font-size:13.5px;}
+  table.t th { background:#0d1b2e; color:#f5f2ec; font-weight:700; padding:11px 14px; text-align:left; line-height:1.4;}
+  table.t td { padding:10.5px 14px; border-bottom:1px solid #e6e1d6; color:#2c3646; line-height:1.55; vertical-align:top; background:#fff;}
+  table.t tr:nth-child(even) td { background:#faf8f4;}
+  .hlrow td { background:#fdf1e3 !important; }
+  .note { margin:22px 70px 0 70px; font-size:13.5px; color:#3c4656; background:#f7f5f0; border-left:5px solid #e8862e; border-radius:0 12px 12px 0; padding:15px 24px; line-height:1.7;}
+  .divider-num { font-size:150px; font-weight:900; color:rgba(232,134,46,.22); position:absolute; right:80px; bottom:44px;}
+  .div-title { font-size:52px; font-weight:900; margin-top:22px;}
+  .div-list { margin-top:30px; font-size:16.5px; line-height:2.2; color:#c9d1dc;}
+  .tbl-wrap { padding:0 70px; margin-top:28px;}
+  .chip { display:inline-block; background:rgba(232,134,46,.14); color:#c96f1a; font-weight:800; font-size:14px; border-radius:999px; padding:7px 18px; margin-right:10px;}
+  .bignum { font-size:52px; font-weight:900; color:#0d1b2e; letter-spacing:-1px; line-height:1;}
+  .bignum small { font-size:24px; font-weight:800;}
+  .chain { display:flex; align-items:stretch; gap:0; padding:0 70px; margin-top:30px;}
+  .chain .node { flex:1; background:#f7f5f0; border-radius:12px; padding:16px 12px; text-align:center; font-size:14px; font-weight:700; color:#2c3646; line-height:1.5; display:flex; align-items:center; justify-content:center;}
+  .chain .arr { width:34px; display:flex; align-items:center; justify-content:center; color:#e8862e; font-size:22px; font-weight:900;}
+  .fun { margin:0 auto; text-align:center; color:#fff; font-weight:800; border-radius:8px; display:flex; align-items:center; justify-content:center; gap:18px;}
+  .stack { display:flex; height:64px; border-radius:12px; overflow:hidden; font-weight:800; color:#fff;}
+  .stack div { display:flex; align-items:center; justify-content:center; font-size:17px;}
+  .phase { border-radius:14px; padding:18px 20px; }
+  .phase .ph-k { font-size:13px; font-weight:900; letter-spacing:1.5px;}
+  .phase .ph-t { font-size:19px; font-weight:900; color:#0d1b2e; margin-top:4px;}
+  .phase p { font-size:13.5px; color:#3c4656; line-height:1.7; margin-top:6px;}
+  .checkitem { display:flex; gap:12px; align-items:flex-start; margin-bottom:14px;}
+  .checkitem .ck { width:26px; height:26px; border-radius:50%; background:#e8862e; color:#fff; font-weight:900; font-size:15px; display:flex; align-items:center; justify-content:center; flex:none; margin-top:2px;}
+  .checkitem .tx { font-size:14.5px; color:#2c3646; line-height:1.65;}
+  .gbar { display:flex; align-items:flex-end; gap:7px; height:190px; border-bottom:3px solid #0d1b2e; padding:0 6px;}
+  .gbar > div { flex:1; text-align:center; }
+</style>
+</head>
+<body>
+
+<!-- 1 封面 -->
+<div class="slide bg-navy">
+  <div style="position:absolute; inset:0; background:
+    radial-gradient(ellipse 900px 520px at 88% -8%, rgba(232,134,46,.24), transparent 60%),
+    radial-gradient(ellipse 700px 420px at -5% 112%, rgba(232,134,46,.10), transparent 60%);"></div>
+  <img src="file:///home/claude/maps/map_locator.svg" style="position:absolute; right:70px; top:120px; width:430px; opacity:.30;">
+  <div style="position:relative; padding:88px 90px;">
+    <div style="font-size:14px; letter-spacing:5px; color:#e8862e; font-weight:800;">AFRICA FAST ARRIVAL DIGITAL TECHNOLOGY LIMITED</div>
+    <div style="font-size:80px; font-weight:900; margin-top:24px; letter-spacing:3px;">非快达</div>
+    <div style="font-size:28px; font-weight:800; margin-top:16px;">种子轮融资计划书<span style="color:#f0a45e;"> · 详细版</span></div>
+    <div style="font-size:16.5px; margin-top:34px; color:#c9d1dc; line-height:2.0; max-width:730px; border-left:4px solid #e8862e; padding-left:26px;">
+      <b style="color:#f0a45e;">核心判断</b><br>
+      以 12 个月做到月千柜的肯尼亚最大清关公司 Sigma 为业务基本盘，<br>
+      先把清关订单变成可控、可追责、可盈利的数字履约网络，再开放撮合。
+    </div>
+    <div style="position:absolute; top:562px; left:90px; font-size:14px; color:#8b95a5; letter-spacing:1px; line-height:1.9;">
+      蒙巴萨—内罗毕走廊 · 责任型数字 3PL · AI 原生组织<br>
+      2026 年 8 月 · Nairobi &amp; Mombasa, Kenya · 机密文件 仅限定向交流
+    </div>
+  </div>
+</div>
+
+<!-- 2 执行摘要 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">EXECUTIVE SUMMARY</div>
+    <h2 class="title">执行摘要：四个可被核验的判断</h2>
+  </div>
+  <div class="cardrow" style="margin-top:38px;">
+    <div class="card"><div style="font-size:15px; font-weight:900; color:#c96f1a; letter-spacing:1px;">01 · 窗口期</div><div style="font-size:19px; font-weight:900; color:#0d1b2e; margin-top:8px;">结构性增长正在发生</div><div class="lab">中非贸易额 $3,480 亿、同比 +17.7%；53 国全面零关税；东非增速 5.8% 为非洲最快。</div></div>
+    <div class="card"><div style="font-size:15px; font-weight:900; color:#c96f1a; letter-spacing:1px;">02 · 基本盘</div><div style="font-size:19px; font-weight:900; color:#0d1b2e; margin-top:8px;">12 个月做到月千柜</div><div class="lab">Sigma 清关业务上线 12 个月，月柜量 33 → 1,020，复购率 95%，持续盈利——订单、线路数据与车队是现成的冷启动资产。</div></div>
+    <div class="card"><div style="font-size:15px; font-weight:900; color:#c96f1a; letter-spacing:1px;">03 · 方法论</div><div style="font-size:19px; font-weight:900; color:#0d1b2e; margin-top:8px;">为已知风险而设计</div><div class="lab">行业失败集中在单票毛利与营运资金两处；我们的路线图、定价纪律与资金结构直接针对这两点。</div></div>
+    <div class="card"><div style="font-size:15px; font-weight:900; color:#c96f1a; letter-spacing:1px;">04 · 路径</div><div style="font-size:19px; font-weight:900; color:#0d1b2e; margin-top:8px;">从受控履约起步</div><div class="lab">先做单走廊责任制数字 3PL，跑通交付与盈利；达到量化闸门后才逐步开放撮合。</div></div>
+  </div>
+  <div style="margin:34px 70px 0 70px; background:#0d1b2e; border-radius:16px; padding:26px 34px; color:#f5f2ec;">
+    <div style="font-size:15px; font-weight:900; color:#f0a45e; margin-bottom:14px; letter-spacing:2px;">种子轮关键条款</div>
+    <div style="display:flex; gap:18px;">
+      <div style="flex:1;"><div style="font-size:27px; font-weight:900;">US$150 万</div><div style="font-size:13px; color:#c9d1dc; margin-top:5px;">种子轮股权融资<br>仅开放此额度</div></div>
+      <div style="flex:1; border-left:1px solid rgba(255,255,255,.15); padding-left:18px;"><div style="font-size:27px; font-weight:900;">US$1,500 万</div><div style="font-size:13px; color:#c9d1dc; margin-top:5px;">投后估值<br>出让约 10%</div></div>
+      <div style="flex:1; border-left:1px solid rgba(255,255,255,.15); padding-left:18px;"><div style="font-size:27px; font-weight:900;">CB 通道</div><div style="font-size:13px; color:#c9d1dc; margin-top:5px;">超额认购走可转债<br>转股上限 $2,000 万</div></div>
+      <div style="flex:1; border-left:1px solid rgba(255,255,255,.15); padding-left:18px;"><div style="font-size:27px; font-weight:900;">US$300–500 万</div><div style="font-size:13px; color:#c9d1dc; margin-top:5px;">独立营运资金额度<br>不占股权</div></div>
+      <div style="flex:1; border-left:1px solid rgba(255,255,255,.15); padding-left:18px;"><div style="font-size:27px; font-weight:900;">分三期</div><div style="font-size:13px; color:#c9d1dc; margin-top:5px;">按里程碑闸门拨付<br>投资人全程可验证</div></div>
+    </div>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">01</div>
+</div>
+
+<!-- 3 目录 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">CONTENTS</div>
+    <h2 class="title">目录</h2>
+  </div>
+  <div style="display:flex; flex-direction:column; gap:16px; padding:0 70px; margin-top:36px;">
+    <div style="display:flex; align-items:center; background:#f7f5f0; border-radius:14px; padding:20px 30px; gap:26px;"><div style="font-size:34px; font-weight:900; color:#e8862e; width:64px;">01</div><div><div style="font-size:20px; font-weight:900; color:#0d1b2e;">时代机遇与战场</div><div style="font-size:13.5px; color:#5b6675; margin-top:3px;">中非贸易拐点 · 东非增长 · 四重窗口 · 行业空间四层收敛 · Sigma 业务基本盘（实测数据）· 核心线路地图</div></div></div>
+    <div style="display:flex; align-items:center; background:#f7f5f0; border-radius:14px; padding:20px 30px; gap:26px;"><div style="font-size:34px; font-weight:900; color:#e8862e; width:64px;">02</div><div><div style="font-size:20px; font-weight:900; color:#0d1b2e;">前车之鉴：吸取行业失败经验</div><div style="font-size:13.5px; color:#5b6675; margin-top:3px;">四个行业案例 · 共同的失败链路 · 六类风险机制与逐条对应的设计约束 · 四层执行闭环</div></div></div>
+    <div style="display:flex; align-items:center; background:#f7f5f0; border-radius:14px; padding:20px 30px; gap:26px;"><div style="font-size:34px; font-weight:900; color:#e8862e; width:64px;">03</div><div><div style="font-size:20px; font-weight:900; color:#0d1b2e;">我们的模式</div><div style="font-size:13.5px; color:#5b6675; margin-top:3px;">责任型数字 3PL · 九环节履约链 · AI 原生运营 · 产品边界 · 运力组织 · 三阶段地图路线与量化闸门</div></div></div>
+    <div style="display:flex; align-items:center; background:#f7f5f0; border-radius:14px; padding:20px 30px; gap:26px;"><div style="font-size:34px; font-weight:900; color:#e8862e; width:64px;">04</div><div><div style="font-size:20px; font-weight:900; color:#0d1b2e;">经济模型与资金</div><div style="font-size:13.5px; color:#5b6675; margin-top:3px;">单票贡献毛利三情景 · 营运资金缺口与四层控制 · KPI 树 · 自下而上的三年财务预测</div></div></div>
+    <div style="display:flex; align-items:center; background:#f7f5f0; border-radius:14px; padding:20px 30px; gap:26px;"><div style="font-size:34px; font-weight:900; color:#e8862e; width:64px;">05</div><div><div style="font-size:20px; font-weight:900; color:#0d1b2e;">团队、合规与融资</div><div style="font-size:13.5px; color:#5b6675; margin-top:3px;">竞争格局 · 法律与牌照 · 数据治理 · 核心团队 · 三轨融资结构 · 资金用途与里程碑 · 风险矩阵</div></div></div>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">02</div>
+</div>
+
+<!-- 4 章扉1 -->
+<div class="slide bg-navy">
+  <img src="file:///home/claude/maps/map_locator.svg" style="position:absolute; right:60px; top:110px; width:500px; opacity:.24;">
+  <div style="position:relative; padding:130px 90px;">
+    <div style="font-size:14px; letter-spacing:6px; color:#e8862e; font-weight:800;">CHAPTER 01</div>
+    <div class="div-title">时代机遇与战场</div>
+    <div class="div-list">
+      · 中非贸易的结构性拐点，与东非作为增长最快次区域的位置<br>
+      · 四重窗口为什么在此刻同时打开，以及它会开多久<br>
+      · Sigma：12 个月做到月千柜的业务基本盘（实测数据）
+    </div>
+  </div>
+  <div class="divider-num">01</div>
+</div>
+
+<!-- 5 中非贸易拐点 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">THE CHINA–AFRICA TRADE INFLECTION</div>
+    <h2 class="title">中非贸易进入结构性拐点</h2>
+    <div class="sub">货量底盘在变大，货型结构在变得更适合干线整车与清关。</div>
+  </div>
+  <div class="cardrow">
+    <div class="card"><div class="num">$3,480<small>亿</small></div><div class="lab">2025 年中非贸易额<br>同比 +17.7%，创历史新高</div></div>
+    <div class="card"><div class="num">17<small> 年</small></div><div class="lab">中国连续保持<br>非洲第一大贸易伙伴国</div></div>
+    <div class="card"><div class="num">+25.8%</div><div class="lab">2025 年中国对非出口增速<br>出口额 $2,250 亿</div></div>
+    <div class="card"><div class="num">53<small> 国</small></div><div class="lab">2026 年 5 月起对非建交国<br>100% 税目零关税全面生效</div></div>
+  </div>
+  <div class="grid3">
+    <div class="panel"><h4>① 货型结构变了</h4><p>大宗散货转向标准化集装箱与工业制成品——正是干线整车与清关的适用货型，公共化、市场化的货运需求第一次真正出现。</p></div>
+    <div class="panel"><h4>② 政策确定性变了</h4><p>零关税从 33 个最不发达国扩至 53 个建交国全覆盖，逐年博弈的政策变量成为长期确定性，货主才愿意签长期运输合同。</p></div>
+    <div class="panel"><h4>③ 流向不对称变了</h4><p>2025 年 1–4 月中国对肯出口 $31.45 亿，自肯进口仅 $0.86 亿。单向货流意味着<b>进口清关是最集中、最可预测的货量入口</b>——恰是 Sigma 已拿下的环节。</p></div>
+  </div>
+  <div style="padding:0 70px; margin-top:18px; font-size:12px; color:#9aa4b2;">来源：中国海关总署 2025 年全年数据、中国外交部与新华社 2026 年零关税政策通报。</div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">03</div>
+</div>
+
+<!-- 6 东非 -->
+<div class="slide bg-sand">
+  <div class="head">
+    <div class="kicker">EAST AFRICA</div>
+    <h2 class="title">东非：非洲增长最快的次区域</h2>
+    <div class="sub">蒙巴萨与北部走廊，是这一增长的物理通道。</div>
+  </div>
+  <div class="cardrow">
+    <div class="card"><div class="num">5.8%</div><div class="lab">2026 年东非预计 GDP 增速<br>非洲整体约 4.0%</div></div>
+    <div class="card"><div class="num">+47%</div><div class="lab">EAC 对全球出口增速<br>多年来首次贸易顺差 $8.4 亿</div></div>
+    <div class="card"><div class="num">211<small>万 TEU</small></div><div class="lab">蒙巴萨港 2025 年集装箱吞吐<br>同比 +5.5%</div></div>
+    <div class="card"><div class="num">&gt;90%</div><div class="lab">公路承担的肯尼亚<br>国内客货流量占比</div></div>
+  </div>
+  <div class="tbl-wrap">
+    <table class="t" style="font-size:14px;">
+      <tr><th>市场</th><th>2026Q1 GDP 增速</th><th>与北部走廊的关系</th><th>对本项目的意义</th></tr>
+      <tr class="hlrow"><td><b>肯尼亚</b></td><td>5.3%</td><td>港口、清关、干线与内陆分拨的区域枢纽</td><td><b style="color:#c96f1a;">首发市场与唯一首期战场</b></td></tr>
+      <tr><td><b>乌干达</b></td><td>5.8%</td><td>蒙巴萨过境货第一大目的国（65.7%，881 万吨）</td><td>阶段二跨境走廊首选</td></tr>
+      <tr><td><b>坦桑尼亚</b></td><td>5.7%</td><td>中部走廊运营方，形成竞争与替代</td><td>供给与路由的备份选项</td></tr>
+      <tr><td><b>卢旺达</b></td><td>10.0%</td><td>走廊末端内陆国，全程依赖蒙巴萨或达累斯萨拉姆</td><td>长期扩展方向，首期不进入</td></tr>
+    </table>
+  </div>
+  <div style="padding:0 70px; margin-top:16px; font-size:12px; color:#9aa4b2;">来源：联合国非洲经济委员会（ECA）2026 年概览、EAC 秘书处、肯尼亚港务局（KPA）。AfCFTA 预计 2030 年东非区内贸易占比由约 20% 升至最高 50%。</div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">04</div>
+</div>
+
+<!-- 7 四重窗口 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">WHY NOW</div>
+    <h2 class="title">为什么是现在：四重窗口同时打开</h2>
+    <div class="sub">领先一步是先进，领先两步是先烈——上一批玩家进场太早，此刻恰好。</div>
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; padding:0 70px; margin-top:30px;">
+    <div class="panel" style="display:flex; gap:20px; align-items:flex-start;"><div style="font-size:38px; font-weight:900; color:#e8862e;">需</div><div><h4>需求侧 · 货量确定</h4><p>贸易高增长 + 零关税落地 + 东非最快增速。进口清关与走廊干线的需求不再需要论证，只需要被高效组织。</p></div></div>
+    <div class="panel" style="display:flex; gap:20px; align-items:flex-start;"><div style="font-size:38px; font-weight:900; color:#e8862e;">供</div><div><h4>供给侧 · 竞争真空</h4><p>2023–2025 年赛道大规模出清：Sendy 停业、Kobo360 停摆、Amitruck 下架。在位者数量与资本密度同处历史低点。</p></div></div>
+    <div class="panel" style="display:flex; gap:20px; align-items:flex-start;"><div style="font-size:38px; font-weight:900; color:#e8862e;">基</div><div><h4>基建侧 · 条件成熟</h4><p>活跃移动钱包 5,340 万，M-PESA 与银行批付可用；走廊时效与港口数据公开可测，运营第一次可被量化管理。</p></div></div>
+    <div class="panel" style="display:flex; gap:20px; align-items:flex-start;"><div style="font-size:38px; font-weight:900; color:#e8862e;">资</div><div><h4>资本侧 · 成本低位</h4><p>上一轮泡沫已出清，Lori 估值由约 $1.2 亿重置至约 $500 万。进入成本处于周期低位，纪律型运营者的相对优势最大。</p></div></div>
+  </div>
+  <div class="note" style="background:#0d1b2e; border-left-color:#e8862e; color:#c9d1dc;"><b style="color:#f0a45e;">窗口不会长期开放：</b>肯尼亚 2027 年大选、油价与资本周期都是已知收紧因素。种子轮的目标是在 12–18 个月内把一条走廊做到<b style="color:#fff;">贡献毛利为正、现金自洽</b>——在窗口关闭前完成从「有货量」到「有可复制单位模型」的转换。</div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">05</div>
+</div>
+
+<!-- 8 四层收敛漏斗 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">MARKET SIZING</div>
+    <h2 class="title">行业空间：从大陆贸易到一条走廊的四层收敛</h2>
+    <div class="sub">越往下越小，但越往下越真实——写进财务预测的只有最底下那一层，且其上限由营运资金而非需求决定。</div>
+  </div>
+  <div style="display:flex; gap:40px; padding:0 70px; margin-top:32px; align-items:flex-start;">
+    <div style="flex:1.25;">
+      <div class="fun" style="width:100%; height:74px; background:#31435c;"><span style="font-size:19px;">大陆贸易底盘</span><span style="font-size:15px; color:#c9d1dc;">2025 中非贸易额 · US$3,480 亿</span></div>
+      <div style="height:8px;"></div>
+      <div class="fun" style="width:84%; height:74px; background:#3f5878;"><span style="font-size:19px;">区域货流</span><span style="font-size:15px; color:#c9d1dc;">蒙巴萨港吞吐 · 211 万 TEU</span></div>
+      <div style="height:8px;"></div>
+      <div class="fun" style="width:68%; height:74px; background:#5a7396;"><span style="font-size:19px;">国家市场 TAM</span><span style="font-size:15px; color:#e3e9f1;">肯尼亚公路货运 · KSh 7,945 亿</span></div>
+      <div style="height:8px;"></div>
+      <div class="fun" style="width:52%; height:74px; background:#d98a3f;"><span style="font-size:19px;">走廊市场 SAM</span><span style="font-size:15px; color:#fdf1e3;">蒙内走廊整车 · 约 US$2.2 亿</span></div>
+      <div style="height:8px;"></div>
+      <div class="fun" style="width:37%; height:74px; background:#e8862e; box-shadow:0 8px 24px rgba(232,134,46,.35);"><span style="font-size:19px;">可服务 SOM</span><span style="font-size:15px; color:#fff;">36 个月 · 约 US$3,000 万</span></div>
+    </div>
+    <div style="flex:0.85;">
+      <div class="panel" style="margin-bottom:16px;"><h4>三条测算纪律</h4>
+        <ul>
+          <li><b>走廊优先</b>：按线路、货类、车型逐层收敛，不从全国总量倒推；</li>
+          <li><b>容量为上限</b>：以承运供给、营运资金与运营席位设天花板；</li>
+          <li><b>询价为准</b>：每个数字须由真实询价与成交记录校验后锁定。</li>
+        </ul>
+      </div>
+      <div class="panel" style="background:#fdf1e3;"><p style="font-size:14px;"><b>我们向投资人承诺的是最底层：</b>2029 年 SOM 渗透率目标约 10%，对应第四章运输服务收入 US$30.2M。不使用「非洲卡车市场千亿美元 × 抽佣率」的算法。</p></div>
+    </div>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">06</div>
+</div>
+
+<!-- 9 Sigma 实测数据版 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">SIGMA — OUR OPERATING BASE (VERIFIED DATA)</div>
+    <h2 class="title">业务基本盘：Sigma，12 个月做到月千柜</h2>
+    <div class="sub">公司 2023 年 9 月注册，清关业务 2025 年 9 月上线——由陈小强（联合运营）与 Sigma CEO 陈德雷一线运营，覆盖空运、港口全环节。以下为 2026 年 8 月实测数据。</div>
+  </div>
+  <div class="cardrow" style="margin-top:26px;">
+    <div class="card"><div class="num">33→1,020<small> 柜/月</small></div><div class="lab">12 个月爬坡曲线<br><span style="color:#9aa4b2;">累计 4,386 柜 · 海运 75% / 空运 25%</span></div></div>
+    <div class="card"><div class="num">95%</div><div class="lab">客户复购率（8 家活跃客户）<br><span style="color:#9aa4b2;">4 家 EPZ 光伏企业为主力</span></div></div>
+    <div class="card"><div class="num">$2,357</div><div class="lab">加权客单价 / 柜（$2,100–3,300）<br><span style="color:#9aa4b2;">H1 净利约 $60 万 · 零补贴</span></div></div>
+    <div class="card"><div class="num">585+<small> 辆</small></div><div class="lab">8 家合作车队可调度运力<br><span style="color:#9aa4b2;">账期 14–45 天，行业信任凭证</span></div></div>
+  </div>
+  <div style="display:flex; gap:34px; padding:0 70px; margin-top:28px; align-items:flex-end;">
+    <div style="flex:1.15;">
+      <div class="gbar">
+        <div><div style="height:6px; background:#8fa3bb; border-radius:4px 4px 0 0;"></div><div style="font-size:11px; margin-top:5px; color:#5b6675;">9月</div></div>
+        <div><div style="height:10px; background:#8fa3bb; border-radius:4px 4px 0 0;"></div><div style="font-size:11px; margin-top:5px; color:#5b6675;">10</div></div>
+        <div><div style="height:14px; background:#8fa3bb; border-radius:4px 4px 0 0;"></div><div style="font-size:11px; margin-top:5px; color:#5b6675;">11</div></div>
+        <div><div style="height:19px; background:#8fa3bb; border-radius:4px 4px 0 0;"></div><div style="font-size:11px; margin-top:5px; color:#5b6675;">12</div></div>
+        <div><div style="height:28px; background:#5a7396; border-radius:4px 4px 0 0;"></div><div style="font-size:11px; margin-top:5px; color:#5b6675;">1月</div></div>
+        <div><div style="height:23px; background:#5a7396; border-radius:4px 4px 0 0;"></div><div style="font-size:11px; margin-top:5px; color:#5b6675;">2</div></div>
+        <div><div style="height:50px; background:#5a7396; border-radius:4px 4px 0 0;"></div><div style="font-size:11px; margin-top:5px; color:#5b6675;">3</div></div>
+        <div><div style="height:59px; background:#d98a3f; border-radius:4px 4px 0 0;"></div><div style="font-size:11px; margin-top:5px; color:#5b6675;">4</div></div>
+        <div><div style="height:94px; background:#d98a3f; border-radius:4px 4px 0 0;"></div><div style="font-size:11px; margin-top:5px; color:#5b6675;">5</div></div>
+        <div><div style="height:151px; background:#e8862e; border-radius:4px 4px 0 0;"></div><div style="font-size:11px; margin-top:5px; color:#5b6675;">6</div></div>
+        <div><div style="height:178px; background:#e8862e; border-radius:4px 4px 0 0;"></div><div style="font-size:11px; margin-top:5px; color:#5b6675;">7</div></div>
+        <div><div style="height:190px; background:#e8862e; border-radius:4px 4px 0 0; box-shadow:0 4px 14px rgba(232,134,46,.35);"></div><div style="font-size:11.5px; margin-top:5px; font-weight:800; color:#c96f1a;">8月<br>1,020</div></div>
+      </div>
+      <div style="font-size:12.5px; color:#5b6675; margin-top:10px; text-align:center;">月清关柜量（2025.9 – 2026.8）——真实爬坡曲线，非稳态口径</div>
+    </div>
+    <div style="flex:0.95;">
+      <div class="panel" style="background:#0d1b2e; padding:20px 24px;">
+        <h4 style="color:#f0a45e;">两个最有说服力的事实</h4>
+        <p style="color:#c9d1dc; font-size:13.5px;"><b style="color:#fff;">高货值信任：</b>服务的光伏电池片柜单柜货值达 $132 万——客户把百万美金级的货交给我们，凭的是确定性。</p>
+        <p style="color:#c9d1dc; font-size:13.5px; margin-top:8px;"><b style="color:#fff;">危机处置力：</b>曾仅用一周解决其他代理滞留港口 4–6 个月的 100 个货柜，为客户挽回百万美金损失。</p>
+        <p style="color:#c9d1dc; font-size:13px; margin-top:10px; border-top:1px solid rgba(255,255,255,.15); padding-top:10px;"><b style="color:#f0a45e;">线下 × 线上：</b>Sigma 做线下，是线上平台的<b style="color:#fff;">第一个大客户——可控、且业务真实</b>。以这盘业务为辐射点先把平台跑通，再覆盖其他货运平台、物流公司与清关公司：<b style="color:#fff;">我们不是从零开始</b>。</p>
+      </div>
+    </div>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">07</div>
+</div>
+
+<!-- 10 核心线路地图 -->
+<div class="slide bg-sand">
+  <div class="head" style="padding-bottom:0;">
+    <div class="kicker">CORE ROUTES</div>
+    <h2 class="title">核心线路：我们已经掌握的每一公里</h2>
+  </div>
+  <div style="display:flex; padding:14px 70px 0 70px; gap:34px; align-items:flex-start;">
+    <div style="flex:1.02;">
+      <img src="file:///home/claude/maps/map_kenya.svg" style="width:100%; border-radius:16px; border:1px solid #e6e1d6; background:#fff;">
+    </div>
+    <div style="flex:0.98; padding-top:8px;">
+      <div class="checkitem"><div class="ck">✓</div><div class="tx"><b>蒙巴萨港 → 内罗毕（A109 干线，约 490 km）</b><br>实测：重卡油耗 110 KES/km（重去空回）· 单程约 14 小时 · 运费基准 $1,250–1,350/柜（Konza / Athi River / Tatu City）</div></div>
+      <div class="checkitem"><div class="ck">✓</div><div class="tx"><b>JKIA 国际机场 → 内罗毕</b><br>空运清关通道（占业务 25%）：按车型 $348–470，高价值高时效货的第二入口</div></div>
+      <div class="checkitem"><div class="ck">✓</div><div class="tx"><b>Malaba 口岸方向（→ 乌干达）</b><br>跨境延伸预留：蒙巴萨过境货 65.7% 以乌干达为目的地</div></div>
+      <div class="checkitem"><div class="ck">✓</div><div class="tx"><b>Namanga 口岸方向（→ 坦桑尼亚）</b><br>南向延伸预留：与中部走廊形成路由互备</div></div>
+      <div style="background:#fdf1e3; border-radius:12px; padding:14px 18px; font-size:13.5px; color:#7a4a12; line-height:1.7; margin-top:6px;"><b>最大的确定性红利：当前回程配载率仅 5%</b>——几乎所有车都空着回蒙巴萨。平台化后每提升 10 个百分点的回程配载，都是纯增量毛利。这就是数字化的价值空间，也是别人拿不到的实测数据。</div>
+    </div>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">08</div>
+</div>
+
+<!-- 11 章扉2 -->
+<div class="slide bg-navy">
+  <div style="padding:130px 90px;">
+    <div style="font-size:14px; letter-spacing:6px; color:#e8862e; font-weight:800;">CHAPTER 02</div>
+    <div class="div-title">前车之鉴：吸取行业失败经验</div>
+    <div class="div-list">
+      · 四个行业案例：Sendy、Kobo360、Amitruck 与美国 Convoy<br>
+      · 一条共同的失败链路，六类风险机制<br>
+      · 我们逐条对应的设计约束与四层执行闭环
+    </div>
+  </div>
+  <div class="divider-num">02</div>
+</div>
+
+<!-- 12 行业案例 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">INDUSTRY CASE STUDIES</div>
+    <h2 class="title">四个行业案例：不缺产品、不缺客户、不缺钱</h2>
+    <div class="sub">缺的是正的单票贡献毛利，与可持续的营运资金结构。我们对每个案例都做过精准分析。</div>
+  </div>
+  <div class="cardrow" style="margin-top:30px;">
+    <div class="card" style="border-top-color:#b0433a;"><div style="font-size:21px; font-weight:900; color:#0d1b2e;">Sendy <span style="font-size:13px; color:#9aa4b2;">肯尼亚</span></div><div style="font-size:13px; color:#b0433a; font-weight:800; margin-top:4px;">停止运营 · 进入管理程序</div><div class="lab">融资约 $2,650 万；客户含 Unilever、DHL、Maersk。峰期月消耗 $100 万——<b>好产品与大客户替代不了正毛利</b>。</div></div>
+    <div class="card" style="border-top-color:#b0433a;"><div style="font-size:21px; font-weight:900; color:#0d1b2e;">Kobo360 <span style="font-size:13px; color:#9aa4b2;">尼日利亚</span></div><div style="font-size:13px; color:#b0433a; font-weight:800; margin-top:4px;">多国业务暂停</div><div class="lab">融资超 $7,900 万、聚合 5 万辆卡车。为货主垫资再举债，<b>授信一断现金流即断</b>。</div></div>
+    <div class="card" style="border-top-color:#b0433a;"><div style="font-size:21px; font-weight:900; color:#0d1b2e;">Amitruck <span style="font-size:13px; color:#9aa4b2;">肯尼亚</span></div><div style="font-size:13px; color:#b0433a; font-weight:800; margin-top:4px;">双端 App 下架</div><div class="lab">种子轮 $400 万、注册车 8,000 辆。<b>开放最低价竞拍形成逆向选择</b>，两端都不信任平台。</div></div>
+    <div class="card" style="border-top-color:#b0433a;"><div style="font-size:21px; font-weight:900; color:#0d1b2e;">Convoy <span style="font-size:13px; color:#9aa4b2;">美国</span></div><div style="font-size:13px; color:#b0433a; font-weight:800; margin-top:4px;">2023 年关闭</div><div class="lab">曾估值 $38 亿、融资 $9.25 亿。在最成熟的市场同样退出——<b>这是模式风险，不是执行风险</b>。</div></div>
+  </div>
+  <div style="margin:34px 70px 0 70px;">
+    <div style="font-size:15px; font-weight:900; color:#0d1b2e; margin-bottom:14px;">公开证据一致指向同一条失败链路：</div>
+    <div class="chain" style="padding:0; margin-top:0;">
+      <div class="node">货量密度不足</div><div class="arr">→</div>
+      <div class="node">压价补贴换增长</div><div class="arr">→</div>
+      <div class="node">单票毛利转负</div><div class="arr">→</div>
+      <div class="node">货主 30–90 天回款<br>车队即时要钱</div><div class="arr">→</div>
+      <div class="node">依赖持续授信垫资</div><div class="arr">→</div>
+      <div class="node">油价 / 大选 / 抽贷<br>任一触发</div><div class="arr">→</div>
+      <div class="node" style="background:#b0433a; color:#fff;">资金链断裂</div>
+    </div>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">09</div>
+</div>
+
+<!-- 13 六机制 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">RISK MECHANISMS → OUR CONSTRAINTS</div>
+    <h2 class="title">六类风险机制，逐条写入产品与考核的约束</h2>
+  </div>
+  <div class="tbl-wrap" style="margin-top:32px;">
+    <table class="t" style="font-size:14px;">
+      <tr><th style="width:34%;">行业教训（风险机制）</th><th>非快达的设计约束</th></tr>
+      <tr><td>把全国注册数当成单走廊流动性</td><td>密度按「线路 × 车型 × 时间窗」计算；北极星指标为<b>每周已完成、已取证、贡献为正的运单数</b></td></tr>
+      <tr><td>低价增长破坏单票贡献毛利</td><td>线路参考价 + 最低可持续价 + 附加费；低于阈值的客户与线路<b>强制修价、降服务或退出</b></td></tr>
+      <tr><td>大货主账期与车队现金错配</td><td>预充值 + 授信额度 + 逾期自动停单；快付由持牌资金方承担，<b>不进平台资产负债表</b></td></tr>
+      <tr><td>「资产轻」被误解为「运营轻」</td><td>每单人工介入次数列为核心 KPI；调度台与 24 小时异常响应是<b>产品的一部分</b>，不是可裁的成本</td></tr>
+      <tr><td>核心市场未成熟就扩产品扩国家</td><td>阶段闸门制：单走廊未达标，<b>不加城市、不加国家、不加品类</b></td></tr>
+      <tr><td>App 可用性被误当成商业闭环</td><td>不以下载量证明 PMF；对外只披露<b>已完成、已取证、已回款</b>口径</td></tr>
+    </table>
+  </div>
+  <div class="note"><b>以上六条同时构成种子轮的对赌口径基础：任一条被突破，即触发扩张暂停而非追加投放。</b>这是我们主动写给投资人的纪律承诺——他们从软件开始找货，我们从真实的货和清关业务开始建平台。</div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">10</div>
+</div>
+
+<!-- 14 四层闭环 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">WHY WE CAN EXECUTE</div>
+    <h2 class="title">我们凭什么做成：四层执行闭环</h2>
+    <div class="sub">前三类教训（密度、价格、资金）由战略与战术封堵，后三类（运营、扩张、指标）由资源与战力承接。</div>
+  </div>
+  <div class="cardrow" style="margin-top:30px;">
+    <div class="card"><div style="font-size:17px; font-weight:900; color:#c96f1a; letter-spacing:1px;">战略</div><ul style="list-style:none; margin-top:10px;"><li style="font-size:13.5px; line-height:1.7; margin-bottom:7px; color:#3c4656;">进入顺序固定：控制塔 → 受控托管 → 有限开放</li><li style="font-size:13.5px; line-height:1.7; margin-bottom:7px; color:#3c4656;">单走廊聚焦，闸门未达标不扩张</li><li style="font-size:13.5px; line-height:1.7; color:#3c4656;">先证明单位模型，再证明规模</li></ul></div>
+    <div class="card"><div style="font-size:17px; font-weight:900; color:#c96f1a; letter-spacing:1px;">资源</div><ul style="list-style:none; margin-top:10px;"><li style="font-size:13.5px; line-height:1.7; margin-bottom:7px; color:#3c4656;">Sigma 月千柜清关订单直接转化</li><li style="font-size:13.5px; line-height:1.7; margin-bottom:7px; color:#3c4656;">蒙巴萨港口与机场关务现场协调能力</li><li style="font-size:13.5px; line-height:1.7; color:#3c4656;">8 家车队 585+ 辆 + 中资与本地双向客户源 + 政商渠道</li></ul></div>
+    <div class="card"><div style="font-size:17px; font-weight:900; color:#c96f1a; letter-spacing:1px;">战力</div><ul style="list-style:none; margin-top:10px;"><li style="font-size:13.5px; line-height:1.7; margin-bottom:7px; color:#3c4656;">清关物流一线、跨境 AI 创业与数字化产品三种能力同时在场</li><li style="font-size:13.5px; line-height:1.7; color:#3c4656;">交易内核自建，其余外采或交持牌方</li></ul></div>
+    <div class="card"><div style="font-size:17px; font-weight:900; color:#c96f1a; letter-spacing:1px;">战术</div><ul style="list-style:none; margin-top:10px;"><li style="font-size:13.5px; line-height:1.7; margin-bottom:7px; color:#3c4656;">参考价 + 最低可持续价 + 附加费引擎</li><li style="font-size:13.5px; line-height:1.7; margin-bottom:7px; color:#3c4656;">认证运力分层，派单全程可审计</li><li style="font-size:13.5px; line-height:1.7; color:#3c4656;">13 周滚动现金预测 + 逾期自动停单</li></ul></div>
+  </div>
+  <div style="margin:36px 70px 0 70px; display:flex; gap:14px; justify-content:center;">
+    <span class="chip">他们从软件开始找货</span>
+    <span style="font-size:22px; font-weight:900; color:#0d1b2e; align-self:center;">VS</span>
+    <span class="chip" style="background:#0d1b2e; color:#f0a45e;">我们从真实的货和清关业务开始建平台</span>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">11</div>
+</div>
+
+<!-- 15 章扉3 -->
+<div class="slide bg-navy">
+  <div style="padding:130px 90px;">
+    <div style="font-size:14px; letter-spacing:6px; color:#e8862e; font-weight:800;">CHAPTER 03</div>
+    <div class="div-title">我们的模式</div>
+    <div class="div-list">
+      · 责任型数字 3PL：不做菜市场，做山姆会员店<br>
+      · 一单到底的九环节履约链，与 AI 原生的运营体系<br>
+      · 产品边界、运力组织，与地图上的三阶段路线
+    </div>
+  </div>
+  <div class="divider-num">03</div>
+</div>
+
+<!-- 16 模式定义 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">RESPONSIBILITY-BASED DIGITAL 3PL</div>
+    <h2 class="title">模式定义：责任型数字 3PL，不是开放货源大厅</h2>
+    <div class="sub">信息平台对信息负责，我们对全流程结果负责——这是可以收取真实服务价差、建立企业信任的根本原因。</div>
+  </div>
+  <div class="tbl-wrap" style="margin-top:28px;">
+    <table class="t" style="font-size:14px;">
+      <tr><th style="width:14%;">维度</th><th style="width:40%;">开放撮合平台（上一批玩家）</th><th>非快达 · 责任型数字 3PL</th></tr>
+      <tr><td>交易结构</td><td>货主自行发布、司机抢单竞价</td><td><b>平台受控报价、指派认证承运人、对结果担责</b></td></tr>
+      <tr><td>价格机制</td><td>最低价竞拍，平台不干预</td><td>线路参考价 + 最低可持续价 + 燃油/等待附加费</td></tr>
+      <tr><td>收入来源</td><td>佣金、广告、增值服务</td><td>运输服务价差/贡献毛利，后期叠加会员费与 SaaS</td></tr>
+      <tr><td>现金结构</td><td>号称轻资产、实则垫资黑洞</td><td>重营运资金——预充值、授信与持牌资金方共同承担</td></tr>
+    </table>
+  </div>
+  <div class="grid2" style="margin-top:24px;">
+    <div class="panel"><h4>不做「菜市场」，做「山姆会员店」</h4><p>两端筛选、有门槛：货主充值绑定、车队认证准入。会员费是双边的信任押金与留存机制——从第一天起只服务「真正有持续货量的 20%」，不为长尾流量烧钱。像京东一样：品牌 = 确定性。</p></div>
+    <div class="panel"><h4>为什么不直接复制满帮</h4><p>满帮可复制的是认证、信息标准化、智能推荐与信用体系；不可复制的是建立在中国数百万级密度上的开放竞价。我们复制的是它形成网络效应之前的<b>密度建设阶段</b>，并用责任型运输组织把每一单真正交付。</p></div>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">12</div>
+</div>
+
+<!-- 17 九环节 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">ORDER-TO-CASH STATE MACHINE</div>
+    <h2 class="title">一单到底：从询价到现金回收的九个环节</h2>
+    <div class="sub">每个环节都有系统动作、人工闸门与必须沉淀的数据——客户要的是确定性：到哪了、何时到、出了事找谁。</div>
+  </div>
+  <div style="padding:0 70px; margin-top:44px;">
+    <div style="display:flex; gap:0; align-items:stretch;">
+      <div style="flex:1; text-align:center;"><div style="width:56px; height:56px; border-radius:50%; background:#0d1b2e; color:#fff; font-size:20px; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto;">1</div><div style="font-size:15px; font-weight:800; margin-top:10px;">获客信用</div><div style="font-size:12px; color:#5b6675; margin-top:4px; line-height:1.5;">合同 · 账期<br>授信额度</div></div>
+      <div style="width:26px; display:flex; align-items:flex-start; padding-top:18px; justify-content:center; color:#e8862e; font-weight:900;">→</div>
+      <div style="flex:1; text-align:center;"><div style="width:56px; height:56px; border-radius:50%; background:#0d1b2e; color:#fff; font-size:20px; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto;">2</div><div style="font-size:15px; font-weight:800; margin-top:10px;">询价报价</div><div style="font-size:12px; color:#5b6675; margin-top:4px; line-height:1.5;">历史价 · 加价规则<br>低毛利人工批准</div></div>
+      <div style="width:26px; display:flex; align-items:flex-start; padding-top:18px; justify-content:center; color:#e8862e; font-weight:900;">→</div>
+      <div style="flex:1; text-align:center;"><div style="width:56px; height:56px; border-radius:50%; background:#0d1b2e; color:#fff; font-size:20px; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto;">3</div><div style="font-size:15px; font-weight:800; margin-top:10px;">订单确认</div><div style="font-size:12px; color:#5b6675; margin-top:4px; line-height:1.5;">结构化订单<br>任务生成</div></div>
+      <div style="width:26px; display:flex; align-items:flex-start; padding-top:18px; justify-content:center; color:#e8862e; font-weight:900;">→</div>
+      <div style="flex:1; text-align:center;"><div style="width:56px; height:56px; border-radius:50%; background:#e8862e; color:#fff; font-size:20px; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto;">4</div><div style="font-size:15px; font-weight:800; margin-top:10px;">找车派单</div><div style="font-size:12px; color:#5b6675; margin-top:4px; line-height:1.5;">熟车推荐<br>资质实时校验</div></div>
+      <div style="width:26px; display:flex; align-items:flex-start; padding-top:18px; justify-content:center; color:#e8862e; font-weight:900;">→</div>
+      <div style="flex:1; text-align:center;"><div style="width:56px; height:56px; border-radius:50%; background:#e8862e; color:#fff; font-size:20px; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto;">5</div><div style="font-size:15px; font-weight:800; margin-top:10px;">装货发车</div><div style="font-size:12px; color:#5b6675; margin-top:4px; line-height:1.5;">车人货匹配<br>装货证据 · 围栏</div></div>
+    </div>
+    <div style="display:flex; gap:0; align-items:stretch; margin-top:40px;">
+      <div style="flex:1; text-align:center;"><div style="width:56px; height:56px; border-radius:50%; background:#e8862e; color:#fff; font-size:20px; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto;">6</div><div style="font-size:15px; font-weight:800; margin-top:10px;">在途异常</div><div style="font-size:12px; color:#5b6675; margin-top:4px; line-height:1.5;">轨迹 · ETA 预测<br>异常工单与升级</div></div>
+      <div style="width:26px; display:flex; align-items:flex-start; padding-top:18px; justify-content:center; color:#e8862e; font-weight:900;">→</div>
+      <div style="flex:1; text-align:center;"><div style="width:56px; height:56px; border-radius:50%; background:#e8862e; color:#fff; font-size:20px; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto;">7</div><div style="font-size:15px; font-weight:800; margin-top:10px;">卸货签收</div><div style="font-size:12px; color:#5b6675; margin-top:4px; line-height:1.5;">电子签收 · POD<br>破损与拒收</div></div>
+      <div style="width:26px; display:flex; align-items:flex-start; padding-top:18px; justify-content:center; color:#e8862e; font-weight:900;">→</div>
+      <div style="flex:1; text-align:center;"><div style="width:56px; height:56px; border-radius:50%; background:#0d1b2e; color:#fff; font-size:20px; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto;">8</div><div style="font-size:15px; font-weight:800; margin-top:10px;">对账结算</div><div style="font-size:12px; color:#5b6675; margin-top:4px; line-height:1.5;">eTIMS 发票<br>双边对账 · 利润账本</div></div>
+      <div style="width:26px; display:flex; align-items:flex-start; padding-top:18px; justify-content:center; color:#e8862e; font-weight:900;">→</div>
+      <div style="flex:1; text-align:center;"><div style="width:56px; height:56px; border-radius:50%; background:#0d1b2e; color:#fff; font-size:20px; font-weight:900; display:flex; align-items:center; justify-content:center; margin:0 auto;">9</div><div style="font-size:15px; font-weight:800; margin-top:10px;">复盘学习</div><div style="font-size:12px; color:#5b6675; margin-top:4px; line-height:1.5;">价格 / 司机 / 线路标签<br>回流定价与派单</div></div>
+      <div style="width:26px;"></div><div style="flex:1;"></div>
+    </div>
+  </div>
+  <div class="note"><b>异常是独立业务对象：</b>事件类型、时间位置、责任方、证据、对 ETA 与成本的影响、处理 owner、升级路径、SLA、赔付与根因——全部回流至定价与派单规则。橙色环节（4–7）是履约核心，也是 AI 数字员工的主战场。</div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">13</div>
+</div>
+
+<!-- 18 AI原生 -->
+<div class="slide bg-navy">
+  <div style="position:relative; padding:56px 90px;">
+    <div class="kicker">AI-NATIVE ORGANISATION</div>
+    <div style="font-size:38px; font-weight:900; line-height:1.25;">AI 原生组织：数字员工干活，人负责确认</div>
+    <div style="font-size:15.5px; color:#b9c2cf; margin-top:12px; line-height:1.7; max-width:1020px;">所有业务环节由 AI 赋能——从数据盘点、询价报价到调度跟踪。「重运营」是这门生意的本质，AI 是让重运营第一次算得过账的变量。</div>
+    <div style="display:flex; gap:24px; margin-top:30px;">
+      <div style="flex:1.25; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:16px; padding:8px 14px;">
+        <table class="t" style="font-size:13.5px;">
+          <tr><th style="background:transparent; color:#f0a45e; border-bottom:1px solid rgba(255,255,255,.2);">AI 数字员工</th><th style="background:transparent; color:#f0a45e; border-bottom:1px solid rgba(255,255,255,.2);">承担的工作</th><th style="background:transparent; color:#f0a45e; border-bottom:1px solid rgba(255,255,255,.2);">人机协同闸门</th></tr>
+          <tr><td style="background:transparent; color:#e6ebf2; border-color:rgba(255,255,255,.08);"><b>数据盘点</b></td><td style="background:transparent; color:#c9d1dc; border-color:rgba(255,255,255,.08);">Sigma 全量业务数据结构化与日常盘点</td><td style="background:transparent; color:#c9d1dc; border-color:rgba(255,255,255,.08);">口径唯一、人工抽检</td></tr>
+          <tr><td style="background:transparent; color:#e6ebf2; border-color:rgba(255,255,255,.08);"><b>需求转单</b></td><td style="background:transparent; color:#c9d1dc; border-color:rgba(255,255,255,.08);">WhatsApp / 邮件 / 截图 / 语音 → 结构化订单</td><td style="background:transparent; color:#c9d1dc; border-color:rgba(255,255,255,.08);">字段准确率 ≥98%，人工确认 100%</td></tr>
+          <tr><td style="background:transparent; color:#e6ebf2; border-color:rgba(255,255,255,.08);"><b>询价报价</b></td><td style="background:transparent; color:#c9d1dc; border-color:rgba(255,255,255,.08);">历史价 + 实时询价 → 建议区间与依据</td><td style="background:transparent; color:#c9d1dc; border-color:rgba(255,255,255,.08);">低置信与低毛利自动升级人工</td></tr>
+          <tr><td style="background:transparent; color:#e6ebf2; border-color:rgba(255,255,255,.08);"><b>调度荐车</b></td><td style="background:transparent; color:#c9d1dc; border-color:rgba(255,255,255,.08);">熟车推荐、多源比价、AI 外呼跟进</td><td style="background:transparent; color:#c9d1dc; border-color:rgba(255,255,255,.08);">派单前实时校验证件与保险</td></tr>
+          <tr><td style="background:transparent; color:#e6ebf2; border-color:rgba(255,255,255,.08);"><b>在途管家</b></td><td style="background:transparent; color:#c9d1dc; border-color:rgba(255,255,255,.08);">轨迹监控、ETA 预测、异常预警与通报</td><td style="background:transparent; color:#c9d1dc; border-color:rgba(255,255,255,.08);">敏感操作留痕、误报率跟踪</td></tr>
+          <tr><td style="background:transparent; color:#e6ebf2;"><b>风控哨兵</b></td><td style="background:transparent; color:#c9d1dc;">夜间全量扫描，晨会输出风险清单与预案</td><td style="background:transparent; color:#c9d1dc;">只提示不决策，黑名单开关</td></tr>
+        </table>
+      </div>
+      <div style="flex:0.75; background:rgba(232,134,46,.12); border:1px solid rgba(232,134,46,.35); border-radius:16px; padding:22px 26px;">
+        <div style="font-size:18px; font-weight:900; color:#f0a45e;">为什么是真优势</div>
+        <ul style="list-style:none; margin-top:12px;">
+          <li style="color:#c9d1dc; font-size:14px; line-height:1.8; margin-bottom:8px;">· 国内 AI 缺场景、东非有真实场景缺数字化——供需互补；</li>
+          <li style="color:#c9d1dc; font-size:14px; line-height:1.8; margin-bottom:8px;">· 本地市场停留在电话与纸单，从信息化直接跨代到智能化；</li>
+          <li style="color:#c9d1dc; font-size:14px; line-height:1.8; margin-bottom:8px;">· 千人公司的运营吞吐，压缩到精干团队 + 数字员工矩阵；</li>
+          <li style="color:#c9d1dc; font-size:14px; line-height:1.8;">· 治理原则：AI 可提取与建议，<b style="color:#fff;">不能绕过订单、报价、承运与付款权限</b>。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 19 产品边界 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">PRODUCT BOUNDARY</div>
+    <h2 class="title">产品边界：自建什么、采购什么、交给谁</h2>
+    <div class="sub">技术投入集中在交易内核——掌握规则的人掌握生态；其余全部外采或交由持牌方承担。</div>
+  </div>
+  <div class="grid3" style="margin-top:30px;">
+    <div class="panel" style="border-top:5px solid #e8862e;">
+      <h4>自己建</h4>
+      <ul>
+        <li>客户 / 报价 / 订单 / 调度 / 运单 / 异常 / 结算与利润规则；</li>
+        <li>承运商评分、分层与派单规则；</li>
+        <li>线路参考价与附加费引擎；</li>
+        <li>客户授信、余额、账龄与停单；</li>
+        <li>订单分配审计日志（防内部寻租）。</li>
+      </ul>
+    </div>
+    <div class="panel" style="border-top:5px solid #0d1b2e;">
+      <h4>买来用</h4>
+      <ul>
+        <li>云、监控、消息、OCR / 大模型；</li>
+        <li>地图、围栏与 GPS 远程信息；</li>
+        <li>身份与证件验证服务；</li>
+        <li>M-PESA 与银行批量付款接口；</li>
+        <li>eTIMS 电子发票对接。</li>
+      </ul>
+    </div>
+    <div class="panel" style="border-top:5px solid #8b95a5;">
+      <h4>持牌方担</h4>
+      <ul>
+        <li>货运与车辆保险（持牌保险人 / 经纪）；</li>
+        <li>支付与资金清算（持牌 PSP）；</li>
+        <li>承运商快付与订单融资（银行 / 保理）；</li>
+        <li>本地法律与税务意见；</li>
+        <li>必要的政府与监管核验。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note"><b>现阶段明确不做：</b>区块链存证 · 自研硬件 · 无数据支撑的自动定价 · 三个原生 App 同时上线（首期 WhatsApp / PWA + 司机轻端）。<b>初创公司「不做什么」比「做什么」更重要</b>——上一批玩家把种子钱花在了 App 和下载量上。</div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">15</div>
+</div>
+
+<!-- 20 运力组织 -->
+<div class="slide bg-sand">
+  <div class="head">
+    <div class="kicker">CARRIER ORGANISATION</div>
+    <h2 class="title">运力组织：8 家合作车队、585+ 辆可调度运力已在手</h2>
+    <div class="sub">运力不是要去找的，是已经在合作的——平台要做的是把既有运力网络认证化、数据化、分层化。</div>
+  </div>
+  <div style="display:flex; gap:30px; padding:0 70px; margin-top:26px;">
+    <div style="flex:1;">
+      <table class="t" style="font-size:13.2px;">
+        <tr><th>合作车队</th><th>可调度车辆</th><th>账期</th></tr>
+        <tr><td>Alliad</td><td>120+</td><td>45 天</td></tr>
+        <tr><td>EFL</td><td>120+</td><td>30 天</td></tr>
+        <tr><td>Flexi</td><td>100+</td><td>45 天</td></tr>
+        <tr><td>SUHARA</td><td>80+</td><td>30 天</td></tr>
+        <tr><td>Allports</td><td>70+</td><td>14 天</td></tr>
+        <tr><td>BBC / SAHAL / LASTEL</td><td>95+</td><td>14–30 天</td></tr>
+        <tr class="hlrow"><td><b>合计</b></td><td><b>585+ 辆</b></td><td><b>14–45 天</b></td></tr>
+      </table>
+    </div>
+    <div style="flex:1.15;">
+      <div class="stack">
+        <div style="width:50%; background:#e8862e;">核心签约车队 50%</div>
+        <div style="width:35%; background:#1d3a5f;">认证 owner-operators 35%</div>
+        <div style="width:15%; background:#8b95a5;">备用池 15%</div>
+      </div>
+      <p style="font-size:13px; color:#5b6675; margin-top:10px; line-height:1.7;">目标运力结构：以既有 8 家车队为基础按线路签约（保底货量 + 固定结算），补充认证个体运力，备用池仅高峰启用。</p>
+      <div class="panel" style="margin-top:14px; padding:18px 22px;">
+        <h4 style="font-size:15.5px;">评分五维与三条铁律</h4>
+        <p style="font-size:13px;"><b>评分：</b>文件合规 · 可用响应 · 履约 · 质量 · 经济。<br><b>铁律：</b>不补贴临时运力 · 奖励只在首单合格回单后发 · 只展示资质有效运力。<br><b>对车队的承诺：</b>稳定货源、透明扣款、POD 后快速回款。</p>
+      </div>
+    </div>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">16</div>
+</div>
+
+<!-- 21 地图路线 -->
+<div class="slide">
+  <div class="head" style="padding-bottom:0;">
+    <div class="kicker">PHASED ROADMAP ON THE MAP</div>
+    <h2 class="title">三阶段路线：在地图上一段一段打透</h2>
+  </div>
+  <div style="display:flex; padding:10px 70px 0 70px; gap:30px; align-items:flex-start;">
+    <div style="flex:1.1;">
+      <img src="file:///home/claude/maps/map_corridors.svg" style="width:100%; border-radius:16px; border:1px solid #e6e1d6;">
+    </div>
+    <div style="flex:0.9; display:flex; flex-direction:column; gap:14px; padding-top:6px;">
+      <div class="phase" style="background:#fdf1e3; border-left:6px solid #e8862e;">
+        <div class="ph-k" style="color:#c96f1a;">第一段 · M0–M12 · 2026.8 起</div>
+        <div class="ph-t">蒙巴萨 → 内罗毕 · 封闭控制塔</div>
+        <p>Sigma 作为第一个大客户，月千柜清关订单全量数字化；受控报价 + 认证车队 + 平台担责。<b>闸门：月付费运单 500+、走廊贡献毛利转正。</b></p>
+      </div>
+      <div class="phase" style="background:#eef1f5; border-left:6px solid #1d3a5f;">
+        <div class="ph-k" style="color:#1d3a5f;">第二段 · M12–M24</div>
+        <div class="ph-t">织密国内网络 · 打通跨境</div>
+        <p>内罗毕—纳库鲁—基苏木第二走廊；蒙巴萨—Malaba—坎帕拉跨境首线。会员制上线，回程配载率从 5% 起步提升。<b>闸门：跨境模型验证、复购货量 80%+。</b></p>
+      </div>
+      <div class="phase" style="background:#f4f4f6; border-left:6px solid #8b95a5;">
+        <div class="ph-k" style="color:#5b6675;">第三段 · M24–M36</div>
+        <div class="ph-t">区域网络 · 有限开放</div>
+        <p>延伸坦桑尼亚（达累斯萨拉姆）与卢旺达（基加利）；全部闸门达标后开放会员撮合与控制塔 SaaS；联动中国揽货端。</p>
+      </div>
+    </div>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">17</div>
+</div>
+
+<!-- 22 闸门 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">QUANTITATIVE GATES</div>
+    <h2 class="title">开放撮合前，必须同时满足的六项量化闸门</h2>
+    <div class="sub">闸门不是口号，是写进融资条款的扩张纪律：任一项未达标，资金只投密度与贡献率，不投新城市、新国家、广告或补贴。</div>
+  </div>
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:22px; padding:0 70px; margin-top:36px;">
+    <div class="panel" style="text-align:center;"><div style="font-size:14px; font-weight:900; color:#c96f1a; letter-spacing:2px;">订单密度</div><div class="bignum" style="font-size:44px; margin-top:10px;">≥1,000<small> 单/月</small></div><p style="margin-top:8px;">单走廊月完成，连续 6 个月</p></div>
+    <div class="panel" style="text-align:center;"><div style="font-size:14px; font-weight:900; color:#c96f1a; letter-spacing:2px;">流动性</div><div class="bignum" style="font-size:44px; margin-top:10px;">≤60<small> 分钟</small></div><p style="margin-top:8px;">找车中位时长；2 小时合格车覆盖 ≥85%</p></div>
+    <div class="panel" style="text-align:center;"><div style="font-size:14px; font-weight:900; color:#c96f1a; letter-spacing:2px;">货主质量</div><div class="bignum" style="font-size:44px; margin-top:10px;">≥80%</div><p style="margin-top:8px;">复购货量占比；前五大客户 ≤50%</p></div>
+    <div class="panel" style="text-align:center;"><div style="font-size:14px; font-weight:900; color:#c96f1a; letter-spacing:2px;">承运质量</div><div class="bignum" style="font-size:44px; margin-top:10px;">≥300<small> 辆</small></div><p style="margin-top:8px;">月活跃认证车辆；取消率 &lt;5%</p></div>
+    <div class="panel" style="text-align:center;"><div style="font-size:14px; font-weight:900; color:#c96f1a; letter-spacing:2px;">财务</div><div class="bignum" style="font-size:44px; margin-top:10px;">≥10%</div><p style="margin-top:8px;">单票贡献率，连续 3 个月为正</p></div>
+    <div class="panel" style="text-align:center;"><div style="font-size:14px; font-weight:900; color:#c96f1a; letter-spacing:2px;">安全</div><div class="bignum" style="font-size:44px; margin-top:10px;">&lt;0.3%</div><p style="margin-top:8px;">货损与严重索赔占运输价值；24 小时事故响应</p></div>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">18</div>
+</div>
+
+<!-- 23 章扉4 -->
+<div class="slide bg-navy">
+  <div style="padding:130px 90px;">
+    <div style="font-size:14px; letter-spacing:6px; color:#e8862e; font-weight:800;">CHAPTER 04</div>
+    <div class="div-title">经济模型与资金</div>
+    <div class="div-list">
+      · 单票贡献毛利的完整口径与三情景<br>
+      · 营运资金缺口测算与四层控制机制<br>
+      · KPI 树、12 个月目标与三年财务预测
+    </div>
+  </div>
+  <div class="divider-num">04</div>
+</div>
+
+<!-- 24 单位经济 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">UNIT ECONOMICS</div>
+    <h2 class="title">单位经济：一票货到底赚不赚钱</h2>
+    <div class="sub">单票贡献毛利 ＝ 货主净收入 − 承运商支付 − 运营人工 − 支付/定位/通信 − 保险索赔准备 − 坏账准备 − 资金成本。实测锚点：加权客单 $2,357/柜、承运采购 $1,250–1,350。</div>
+  </div>
+  <div style="padding:0 70px; margin-top:34px;">
+    <div style="display:flex; align-items:center; gap:18px; margin-bottom:18px;">
+      <div style="width:110px; font-size:15px; font-weight:900; color:#b0433a;">压力情景</div>
+      <div style="flex:1; display:flex; height:52px; border-radius:10px; overflow:hidden; color:#fff; font-weight:800; font-size:14px;">
+        <div style="width:88%; background:#31435c; display:flex; align-items:center; justify-content:center;">承运采购 88</div>
+        <div style="width:9.5%; background:#8b95a5; display:flex; align-items:center; justify-content:center;">9.5</div>
+        <div style="width:2.5%; background:#b0433a;"></div>
+      </div>
+      <div style="width:120px; font-size:22px; font-weight:900; color:#b0433a;">2.5%</div>
+    </div>
+    <div style="display:flex; align-items:center; gap:18px; margin-bottom:18px;">
+      <div style="width:110px; font-size:15px; font-weight:900; color:#0d1b2e;">基准情景</div>
+      <div style="flex:1; display:flex; height:52px; border-radius:10px; overflow:hidden; color:#fff; font-weight:800; font-size:14px;">
+        <div style="width:84%; background:#31435c; display:flex; align-items:center; justify-content:center;">承运采购 84</div>
+        <div style="width:6.5%; background:#8b95a5; display:flex; align-items:center; justify-content:center;">6.5</div>
+        <div style="width:9.5%; background:#e8862e; display:flex; align-items:center; justify-content:center;">9.5</div>
+      </div>
+      <div style="width:120px; font-size:22px; font-weight:900; color:#c96f1a;">9.5%</div>
+    </div>
+    <div style="display:flex; align-items:center; gap:18px;">
+      <div style="width:110px; font-size:15px; font-weight:900; color:#0d1b2e;">成熟情景</div>
+      <div style="flex:1; display:flex; height:52px; border-radius:10px; overflow:hidden; color:#fff; font-weight:800; font-size:14px;">
+        <div style="width:80%; background:#31435c; display:flex; align-items:center; justify-content:center;">承运采购 80</div>
+        <div style="width:4.8%; background:#8b95a5; display:flex; align-items:center; justify-content:center;">4.8</div>
+        <div style="width:15.2%; background:#e8862e; display:flex; align-items:center; justify-content:center;">15.2</div>
+      </div>
+      <div style="width:120px; font-size:22px; font-weight:900; color:#c96f1a;">15.2%</div>
+    </div>
+    <div style="display:flex; gap:26px; margin-top:14px; font-size:12.5px; color:#5b6675;">
+      <span><span style="display:inline-block;width:11px;height:11px;background:#31435c;border-radius:3px;margin-right:6px;"></span>承运采购</span>
+      <span><span style="display:inline-block;width:11px;height:11px;background:#8b95a5;border-radius:3px;margin-right:6px;"></span>保险/支付/通信/可变运营</span>
+      <span><span style="display:inline-block;width:11px;height:11px;background:#e8862e;border-radius:3px;margin-right:6px;"></span>单票贡献（客户净收入=100）</span>
+    </div>
+  </div>
+  <div class="note"><b>纪律：MVP 连续 8 周贡献率 ≥8%。</b>成熟情景的核心驱动已有实据：当前回程配载率仅 5%，每提升 10pp 即为纯增量毛利；签约车队占比提升压低承运采购。低于阈值的客户或线路触发修价、降服务或退出三选一，销售与财务双签。本表以蒙内走廊实际询价与成交数据持续校准。</div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">19</div>
+</div>
+
+<!-- 25 营运资金 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">WORKING CAPITAL</div>
+    <h2 class="title">营运资金：这是行业真正的生死线</h2>
+    <div class="sub">货主 30–90 天回款、司机加油要现钱——中间的缺口谁来扛、怎么扛，决定平台生死。Sigma 已拿到 14–45 天车队账期，是重要的结构性优势。</div>
+  </div>
+  <div class="grid2" style="grid-template-columns:1fr 1fr; margin-top:26px;">
+    <div class="panel">
+      <h4>缺口有多大（示例）</h4>
+      <p style="background:#fff; border-radius:10px; padding:12px 16px; font-size:14px; margin-bottom:12px;">缺口 ≈ 月承运采购 ×（DSO − DPO）÷ 30 ＋ 税费/索赔缓冲</p>
+      <ul>
+        <li>月运输收入 $350k，承运采购 84% = $294k；</li>
+        <li>客户 DSO 45 天、承运 DPO 7 天 → 38 天缺口 ≈ $372k；</li>
+        <li>加缓冲 $80k → <b>单月占用约 $450k；订单翻倍，占用同步翻倍</b>——这是增长的真实成本。</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h4>四层资金来源</h4>
+      <div style="display:flex; height:46px; border-radius:10px; overflow:hidden; color:#fff; font-weight:800; font-size:13.5px; margin-bottom:12px;">
+        <div style="width:50%; background:#e8862e; display:flex; align-items:center; justify-content:center;">预充值与押金 50%</div>
+        <div style="width:30%; background:#1d3a5f; display:flex; align-items:center; justify-content:center;">银行/保理 30%</div>
+        <div style="width:20%; background:#8b95a5; display:flex; align-items:center; justify-content:center;">自有 ≤20%</div>
+      </div>
+      <ul>
+        <li>平台自有资金仅覆盖极端账期；</li>
+        <li><b>禁止</b>以短期银行流贷支持长期增长——当地利率 20%+，饮鸩止渴；</li>
+        <li>快付成本计入报价，不隐藏为增长费用。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tbl-wrap" style="margin-top:20px;">
+    <table class="t">
+      <tr><th>控制机制</th><th>规则</th><th>触发动作</th></tr>
+      <tr><td>客户授信</td><td>额度、账期与保证金联动历史付款记录</td><td>逾期自动停单；超额度双签</td></tr>
+      <tr><td>集中度</td><td>单一货主 ≤25% 应收（现状前二占 75%，列入改进项）；单一资金方 ≤40% 授信</td><td>触线即启动备用客户与备用资金方</td></tr>
+      <tr><td>现金预测</td><td>13 周滚动现金预测每日更新</td><td>预测缺口 &gt;4 周即冻结新增投放</td></tr>
+    </table>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">20</div>
+</div>
+
+<!-- 26 KPI -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">KPI TREE & 12-MONTH TARGETS</div>
+    <h2 class="title">KPI 树与 12 个月目标</h2>
+    <div class="sub">北极星指标：每周已完成、已取证、贡献为正的运单数——不追注册数、不追下载量。</div>
+  </div>
+  <div class="grid2" style="grid-template-columns:0.85fr 1.3fr; margin-top:26px;">
+    <div class="panel">
+      <h4>五层指标体系</h4>
+      <ul>
+        <li><b>增长</b>：活跃付费货主、复购率、锚定客户货量；</li>
+        <li><b>流动性</b>：报价响应、赢单率、找车时长；</li>
+        <li><b>履约</b>：准时率、GPS 完整度、POD 时延；</li>
+        <li><b>经济</b>：贡献率、每单运营成本、回程配载率；</li>
+        <li><b>现金</b>：DSO / DPO、逾期、13 周最低现金。</li>
+      </ul>
+      <p style="margin-top:10px; font-size:13px;">全部指标由 AI 数字员工按日跑数；每月财务经营例会拉齐口径，<b>对外数据出口唯一</b>。</p>
+    </div>
+    <div>
+      <table class="t" style="font-size:13.8px;">
+        <tr><th>指标</th><th>6 个月</th><th>12 个月</th></tr>
+        <tr><td>付费完成运单</td><td>≥ 200 / 月</td><td><b>≥ 500 / 月</b></td></tr>
+        <tr><td>复购货量占比</td><td>≥ 70%</td><td>≥ 80%</td></tr>
+        <tr><td>报价中位时长</td><td>≤ 15 分钟</td><td>≤ 5 分钟（标准单）</td></tr>
+        <tr><td>准时到车 / POD 4 小时回传</td><td>≥ 90% / 90%</td><td>≥ 94% / 95%</td></tr>
+        <tr><td>承运取消率</td><td>&lt; 7%</td><td>&lt; 5%</td></tr>
+        <tr><td>回程配载率（现状 5%）</td><td>≥ 15%</td><td>≥ 25%</td></tr>
+        <tr class="hlrow"><td><b>单票贡献率</b></td><td><b>≥ 8%</b></td><td><b>≥ 10%</b></td></tr>
+        <tr><td>逾期应收占比</td><td>&lt; 10%</td><td>&lt; 5%</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">21</div>
+</div>
+
+<!-- 27 财务预测 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">FINANCIAL PROJECTION</div>
+    <h2 class="title">财务预测：每一行都可回溯到实测锚点</h2>
+  </div>
+  <div style="display:flex; gap:36px; padding:0 70px; margin-top:26px; align-items:flex-end;">
+    <div style="flex:1;">
+      <div style="display:flex; align-items:flex-end; gap:34px; height:250px; padding:0 10px; border-bottom:3px solid #0d1b2e;">
+        <div style="flex:1; text-align:center;"><div style="font-size:15px; font-weight:900; color:#0d1b2e; margin-bottom:6px;">6.3</div><div style="height:47px; background:#8fa3bb; border-radius:8px 8px 0 0;"></div><div style="font-size:13px; font-weight:800; margin-top:8px;">2026 基线</div></div>
+        <div style="flex:1; text-align:center;"><div style="font-size:15px; font-weight:900; color:#0d1b2e; margin-bottom:6px;">6.3</div><div style="height:47px; background:#5a7396; border-radius:8px 8px 0 0;"></div><div style="font-size:13px; font-weight:800; margin-top:8px;">2027 整固</div></div>
+        <div style="flex:1; text-align:center;"><div style="font-size:15px; font-weight:900; color:#0d1b2e; margin-bottom:6px;">15.4</div><div style="height:114px; background:#d98a3f; border-radius:8px 8px 0 0;"></div><div style="font-size:13px; font-weight:800; margin-top:8px;">2028</div></div>
+        <div style="flex:1; text-align:center;"><div style="font-size:15px; font-weight:900; color:#0d1b2e; margin-bottom:6px;">33.7</div><div style="height:250px; background:#e8862e; border-radius:8px 8px 0 0; box-shadow:0 6px 18px rgba(232,134,46,.3);"></div><div style="font-size:13px; font-weight:800; margin-top:8px;">2029</div></div>
+      </div>
+      <div style="font-size:12.5px; color:#5b6675; margin-top:10px; text-align:center;">营业收入（会计口径，US$ M）· 2029 上半年净利润转正（+1.07M）</div>
+    </div>
+    <div style="flex:1.15;">
+      <table class="t" style="font-size:13.2px;">
+        <tr><th>核心指标</th><th>2027</th><th>2028</th><th>2029</th></tr>
+        <tr><td>月完成运单（月均）</td><td>400</td><td>1,200</td><td>2,800</td></tr>
+        <tr><td>单票客户收入（US$）</td><td>850</td><td>875</td><td>900</td></tr>
+        <tr><td>单票贡献率</td><td>8%</td><td>10%</td><td>12%</td></tr>
+        <tr><td>贡献毛利合计（$M）</td><td>1.21</td><td>2.41</td><td>5.17</td></tr>
+        <tr><td>固定成本（$M）</td><td>1.90</td><td>2.90</td><td>4.10</td></tr>
+        <tr class="hlrow"><td><b>净利润（$M）</b></td><td>-0.69</td><td>-0.49</td><td><b>+1.07</b></td></tr>
+        <tr><td>月活跃付费货主 / 认证车辆</td><td>35 / 115</td><td>90 / 343</td><td>180 / 800</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="note"><b>预测的实测底盘：</b>Sigma 已实测月千柜清关订单、加权客单 $2,357、8 家车队 585+ 辆——2027 年 400 单/月的运输预测仅相当于既有清关柜量的约 40% 转化，保守可验证。8 月 run-rate 年化已达 $30M 量级流水（对外沿用保守累计口径，另行标注）。2027 年为刻意整固年；累计亏损 $1.18M，种子轮资金覆盖并留有安全垫。</div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">22</div>
+</div>
+
+<!-- 28 章扉5 -->
+<div class="slide bg-navy">
+  <div style="padding:130px 90px;">
+    <div style="font-size:14px; letter-spacing:6px; color:#e8862e; font-weight:800;">CHAPTER 05</div>
+    <div class="div-title">团队、合规与融资</div>
+    <div class="div-list">
+      · 竞争格局与法律牌照边界<br>
+      · 数据治理：Sigma 与平台的关系<br>
+      · 三轨融资结构、资金用途、里程碑与风险矩阵
+    </div>
+  </div>
+  <div class="divider-num">05</div>
+</div>
+
+<!-- 29 竞争格局 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">COMPETITIVE LANDSCAPE</div>
+    <h2 class="title">竞争格局：公开记录决定了我们的进入顺序</h2>
+  </div>
+  <div class="tbl-wrap" style="margin-top:30px;">
+    <table class="t" style="font-size:14px;">
+      <tr><th style="width:17%;">玩家</th><th style="width:43%;">公开可核验的现状</th><th>与我们的关系</th></tr>
+      <tr><td><b>Lori Systems</b></td><td>托管型企业货运仍在运营；2024 年融资 $200 万、估值约 $500 万（曾 $1.2 亿）</td><td>最直接对标：证明托管模式可行，也证明账期与资金成本足以压垮估值</td></tr>
+      <tr><td><b>Leta</b></td><td>配送 SaaS 与路线优化，不承担运价与货物责任</td><td>更轻的软件路径，可作合作方</td></tr>
+      <tr><td><b>Sendy / Kobo360 / Amitruck</b></td><td>停业 / 停摆 / 下架（详见第二章）</td><td>行业教训样本，逐条反向设计</td></tr>
+      <tr><td><b>传统 3PL、车队与经纪</b></td><td>关系、线路与现场执行强，数字化程度不一</td><td>最大的日常竞争，同时是最现实的供给伙伴</td></tr>
+      <tr class="hlrow"><td><b>非快达 AFA</b></td><td>Sigma 月千柜实测订单、港口/机场协调能力、8 家车队 585+ 辆、中国数字物流经验 + AI</td><td><b>唯一从「已有货量」而非「先建平台再找货」起步的进入者</b></td></tr>
+    </table>
+  </div>
+  <div class="note">依据：公司官网与财报、肯尼亚通信管理局持牌名单、TechCabal / TechCrunch / Forbes 报道、第三方 App 历史数据库。另：15 小时航程与 1 万公里距离本身就是竞争壁垒——真正能落地非洲一线的团队极少。</div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">23</div>
+</div>
+
+<!-- 30 法律牌照 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">LEGAL & LICENSING</div>
+    <h2 class="title">法律实体、牌照与责任边界</h2>
+    <div class="sub">监管边界模糊不是竞争优势，是尚未暴露的单点故障——所有合规动作前置到上线之前，主动排雷。</div>
+  </div>
+  <div class="grid2" style="margin-top:26px;">
+    <div class="panel">
+      <h4>必须先定的法律角色</h4>
+      <p>信息撮合方 / 货运经纪 / 实际承运人 / 综合物流服务商——四选一不可含糊。2025 年肯尼亚高等法院 Sendy 税案确立：<b>自称「平台」不能免除实质控制带来的 VAT 责任</b>。我们对天使与锚定客户采用责任型 3PL 合同，按 principal 口径确认收入；后期开放撮合须用独立条款、发票与支付流。</p>
+      <h4 style="margin-top:14px;">牌照成本（已知项）</h4>
+      <p>CA 2026 新增 Courier Hailing 类别：申请费 5,000 先令、初始许可 100,000 先令、年费 100,000 先令或营业额 0.4%（孰高）、另 0.5% Universal Service Levy——成本可控，关键是先拿。</p>
+    </div>
+    <div>
+      <table class="t" style="font-size:13.2px;">
+        <tr><th>上线前须书面确认</th><th>责任方</th><th>时点</th></tr>
+        <tr><td>干线 / 跨境 / 清关许可矩阵</td><td>肯尼亚律师 + 监管</td><td>资金到位 60 天内</td></tr>
+        <tr><td>货损、延误与数据责任归属及保险衔接</td><td>法务 + 持牌经纪</td><td>首单上线前</td></tr>
+        <tr><td>第三方车队牌照保险及失效阻断</td><td>运营 + 法务</td><td>首单上线前</td></tr>
+        <tr><td>ODPC 数据合规注册与 DPIA</td><td>DPO + 产品</td><td>MVP 发布前</td></tr>
+        <tr><td>政商资源转为公司名下合规文件</td><td>董事会</td><td>种子轮交割条件</td></tr>
+      </table>
+    </div>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">24</div>
+</div>
+
+<!-- 31 数据治理 -->
+<div class="slide bg-sand">
+  <div class="head">
+    <div class="kicker">OPERATING BASE & DATA GOVERNANCE</div>
+    <h2 class="title">Sigma 与平台的关系，与数据口径治理</h2>
+    <div class="sub">两主体经济与法律上相互独立、互为交易对手——既是合规要求，也让平台从第一天起就有真实付费客户。</div>
+  </div>
+  <div class="grid2" style="margin-top:26px;">
+    <div class="panel">
+      <h4>Sigma 的三重角色</h4>
+      <ul>
+        <li><b>第一个大客户</b>：月千柜清关与货运订单经平台「一单到底」，平台首月即有真实收入与履约数据；</li>
+        <li><b>数据基座</b>：12 个月逐月订单、线路、价格、异常、账期数据全量数字化沉淀，构成定价引擎与信用体系的种子数据；</li>
+        <li><b>模式样板</b>：以其爬坡与周转数据作为向其他货运平台、物流公司与清关公司复制的实证范本。</li>
+      </ul>
+      <h4 style="margin-top:14px;">尽调怎么看数据</h4>
+      <p>业务数据台账已入库（逐月柜量、客户结构、车队与线路实测）；平台上线后开放实时经营看板，现场核数、按单穿透。</p>
+    </div>
+    <div class="panel">
+      <h4>数据口径治理（内部铁律）</h4>
+      <ul>
+        <li>统一指标字典：流水 / GMV / 会计收入 / 毛利 / 净利 / 货值分口径，任何人不得混用；</li>
+        <li>每月财务经营例会三方拉齐后方可对外，<b>对外数据出口唯一</b>；</li>
+        <li>会计师事务所基线报表 9 月中锁定收入口径；</li>
+        <li>核心抓手：箱量、毛利、单票周期、单票利润、回程配载率。</li>
+      </ul>
+      <h4 style="margin-top:14px;">关键资产归属</h4>
+      <p>客户合同、牌照、车辆协议、系统账号、数据与银行账户均由公司主体持有，<b>不依赖任何个人</b>。</p>
+    </div>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">25</div>
+</div>
+
+<!-- 32 团队 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">TEAM</div>
+    <h2 class="title">核心团队：复合型的实战组合</h2>
+    <div class="sub">对肯尼亚和中国两个市场都足够了解，兼具 AI 科技、清关物流、产业投资与资本市场背景——每个人都在自己的位置上打过硬仗。</div>
+  </div>
+  <div class="cardrow" style="margin-top:32px; gap:16px;">
+    <div class="card" style="padding:22px 20px 18px 20px;"><div style="font-size:12px; font-weight:900; color:#9aa4b2; letter-spacing:1px;">一号位</div><div style="font-size:21px; font-weight:900; color:#0d1b2e; margin-top:2px;">梁嘉文 Gavin</div><div style="font-size:13px; font-weight:800; color:#c96f1a; margin-top:2px;">CEO</div><div class="lab" style="margin-top:8px; font-size:12.5px;">深耕法律 AI 与商业运营 15 年的 AI Native 创业者，南京大学毕业；曾创办擎盾科技，服务 3,000 家政法机构、获腾讯等一线资本投资；2024 年出海香港联合创立智法数科，获香港政府数千万资金扶持与 $700 万融资。8 月 15 日起常驻肯尼亚。</div></div>
+    <div class="card" style="padding:22px 20px 18px 20px;"><div style="font-size:12px; font-weight:900; color:#9aa4b2; letter-spacing:1px;">二号位</div><div style="font-size:21px; font-weight:900; color:#0d1b2e; margin-top:2px;">陈小强 Robin</div><div style="font-size:13px; font-weight:800; color:#c96f1a; margin-top:2px;">Chairman 董事长</div><div class="lab" style="margin-top:8px; font-size:12.5px;">深耕东非多年，对非洲产业投资与工业地产有深刻理解；Sigma 联合运营者；负责政商对接与本地化。</div></div>
+    <div class="card" style="padding:22px 20px 18px 20px;"><div style="font-size:12px; font-weight:900; color:#9aa4b2; letter-spacing:1px;">三号位</div><div style="font-size:21px; font-weight:900; color:#0d1b2e; margin-top:2px;">陈德雷 Austin</div><div style="font-size:13px; font-weight:800; color:#c96f1a; margin-top:2px;">COO · Sigma CEO</div><div class="lab" style="margin-top:8px; font-size:12.5px;">深耕清关物流一线，主导 Sigma 12 个月做到月千柜、成为肯尼亚最大清关公司；负责走廊运营与承运商组织。</div></div>
+    <div class="card" style="padding:22px 20px 18px 20px;"><div style="font-size:12px; font-weight:900; color:#9aa4b2; letter-spacing:1px;">四号位</div><div style="font-size:21px; font-weight:900; color:#0d1b2e; margin-top:2px;">朱学峰 Steven</div><div style="font-size:13px; font-weight:800; color:#c96f1a; margin-top:2px;">CRO 首席关系官 · 董事</div><div class="lab" style="margin-top:8px; font-size:12.5px;">熟悉国内广告与品牌业务，深谙各板块产业情况；负责产业协同与融资资源对接（非独立董事）。</div></div>
+    <div class="card" style="padding:22px 20px 18px 20px;"><div style="font-size:12px; font-weight:900; color:#9aa4b2; letter-spacing:1px;">五号位</div><div style="font-size:21px; font-weight:900; color:#0d1b2e; margin-top:2px;">程志斌 Alex</div><div style="font-size:13px; font-weight:800; color:#c96f1a; margin-top:2px;">CFO</div><div class="lab" style="margin-top:8px; font-size:12.5px;">资深资本与资产管理专家：成功孵化 15 家上市公司、从业累计交易额超 $100 亿；负责公司资本、合规与上市进程管理，兼顾价值发现与产业协同。</div></div>
+  </div>
+  <div class="grid2" style="margin-top:26px;">
+    <div class="panel"><h4>分工机制</h4><p>经营与数字化（CEO 梁嘉文）· 政商与本地化（Chairman 陈小强）· 业务一线（COO 陈德雷）· 关系与资源（CRO 朱学峰）· 资本与上市（CFO 程志斌）——各专业各下场，统一于董事会决策。</p></div>
+    <div class="panel"><h4>资金到位后 90 天内补齐</h4><p>Kenya Country GM · 财务 Controller · 走廊运营负责人 ×2（蒙巴萨/内罗毕）· 风控与索赔负责人 · 本地持牌法务顾问。</p></div>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">26</div>
+</div>
+
+<!-- 33 融资三轨 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">SEED ROUND — THREE SEPARATE TRACKS</div>
+    <h2 class="title">种子轮融资方案：股权、可转债、垫资，三轨分开</h2>
+    <div class="sub">混用股权钱与垫资钱正是 Kobo360 的直接教训。本轮股权额度刻意克制——融的是「开干的钱」，不是「烧的钱」。</div>
+  </div>
+  <div class="grid3" style="margin-top:28px;">
+    <div class="panel" style="border-top:6px solid #e8862e;">
+      <div style="font-size:13px; font-weight:900; color:#c96f1a; letter-spacing:2px;">轨道一 · 股权</div>
+      <div class="bignum" style="font-size:40px; margin-top:8px;">US$150<small> 万</small></div>
+      <ul style="margin-top:12px;">
+        <li>投后 US$1,500 万 · 出让约 10%；</li>
+        <li>标的为境外控股主体（BVI 层，详见架构方案）；</li>
+        <li>分三期按里程碑拨付；</li>
+        <li>董事会席位 + 信息权 + 资产归属确认。</li>
+      </ul>
+    </div>
+    <div class="panel" style="border-top:6px solid #0d1b2e;">
+      <div style="font-size:13px; font-weight:900; color:#0d1b2e; letter-spacing:2px;">轨道二 · 可转债</div>
+      <div class="bignum" style="font-size:40px; margin-top:8px;">超额通道</div>
+      <ul style="margin-top:12px;">
+        <li>认可项目但超出额度的资金以 CB 进入；</li>
+        <li>转股估值上限 US$2,000 万——早期支持者锁定优势价格；</li>
+        <li>用作营运资金；公司行为、有限责任。</li>
+      </ul>
+    </div>
+    <div class="panel" style="border-top:6px solid #8b95a5;">
+      <div style="font-size:13px; font-weight:900; color:#5b6675; letter-spacing:2px;">轨道三 · 营运资金额度</div>
+      <div class="bignum" style="font-size:40px; margin-top:8px;">US$300–500<small> 万</small></div>
+      <ul style="margin-top:12px;">
+        <li>银行订单融资 / 应收保理 / DFI；</li>
+        <li>不占股权、不进平台资产负债表；</li>
+        <li>融资成本计入报价；单一资金方 ≤40%。</li>
+      </ul>
+    </div>
+  </div>
+  <div class="note"><b>估值锚点：</b>可比 Lori 2024 年约 $500 万；本项目实测月千柜订单、加权客单 $2,357、8 月 run-rate 年化 $30M 量级流水、持续盈利——投前 $1,350 万为纪律型定价。<b>资金要求：</b>仅接受来源清晰、可过 KYC/AML 的资金。24 个月累计亏损预计 $118 万，股权资金留有约一倍安全垫。</div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">27</div>
+</div>
+
+<!-- 34 资金用途 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">USE OF FUNDS & MILESTONE GATES</div>
+    <h2 class="title">资金用途与里程碑闸门</h2>
+    <div class="sub">每一笔钱都绑定一个可验证的运营指标。</div>
+  </div>
+  <div style="display:flex; gap:44px; padding:0 70px; margin-top:30px; align-items:center;">
+    <div style="width:270px; text-align:center;">
+      <div style="width:250px; height:250px; border-radius:50%; margin:0 auto; background:conic-gradient(#e8862e 0 108deg, #1d3a5f 108deg 208.8deg, #5a7396 208.8deg 266.4deg, #8fa3bb 266.4deg 309.6deg, #c8ccd4 309.6deg 345.6deg, #e6e1d6 345.6deg 360deg); display:flex; align-items:center; justify-content:center;">
+        <div style="width:150px; height:150px; border-radius:50%; background:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+          <div style="font-size:26px; font-weight:900; color:#0d1b2e;">$150 万</div>
+          <div style="font-size:12px; color:#5b6675;">股权资金用途</div>
+        </div>
+      </div>
+    </div>
+    <div style="flex:1;">
+      <table class="t" style="font-size:13.8px;">
+        <tr><th>用途</th><th>金额（$万）</th><th>占比</th></tr>
+        <tr><td><span style="display:inline-block;width:11px;height:11px;background:#e8862e;border-radius:3px;margin-right:8px;"></span>产品与技术（控制塔 TMS、AI 数字员工）</td><td>45</td><td>30%</td></tr>
+        <tr><td><span style="display:inline-block;width:11px;height:11px;background:#1d3a5f;border-radius:3px;margin-right:8px;"></span>走廊运营（调度、审核、24h 响应）</td><td>42</td><td>28%</td></tr>
+        <tr><td><span style="display:inline-block;width:11px;height:11px;background:#5a7396;border-radius:3px;margin-right:8px;"></span>销售与客户</td><td>24</td><td>16%</td></tr>
+        <tr><td><span style="display:inline-block;width:11px;height:11px;background:#8fa3bb;border-radius:3px;margin-right:8px;"></span>合规与牌照</td><td>18</td><td>12%</td></tr>
+        <tr><td><span style="display:inline-block;width:11px;height:11px;background:#c8ccd4;border-radius:3px;margin-right:8px;"></span>营运资金缓冲</td><td>15</td><td>10%</td></tr>
+        <tr><td><span style="display:inline-block;width:11px;height:11px;background:#e6e1d6;border-radius:3px;margin-right:8px;"></span>储备</td><td>6</td><td>4%</td></tr>
+      </table>
+    </div>
+    <div style="width:330px;">
+      <div class="panel" style="padding:20px 22px;">
+        <h4>三期拨付闸门</h4>
+        <ul style="font-size:13px;">
+          <li><b>首期 40%</b> · 交割即付：架构与牌照矩阵完成、Sigma 业务基线交接；</li>
+          <li><b>二期 35%</b> · M6：月运单 ≥200、贡献率 ≥8% 连续 8 周、准时 ≥90%；</li>
+          <li><b>三期 25%</b> · M12：月运单 ≥500、贡献率 ≥10%、复购 ≥80%、13 周现金无缺口。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">28</div>
+</div>
+
+<!-- 35 风险矩阵 -->
+<div class="slide">
+  <div class="head">
+    <div class="kicker">RISK REGISTER</div>
+    <h2 class="title">风险矩阵：每一个风险都有触发信号与预案</h2>
+    <div class="sub">按月更新并向投资人披露；任一触发信号出现，即执行缓释并暂停相关方向的资金投放。</div>
+  </div>
+  <div class="tbl-wrap" style="margin-top:26px;">
+    <table class="t" style="font-size:13px;">
+      <tr><th>风险</th><th>触发信号</th><th>预防与缓释</th><th>责任人</th></tr>
+      <tr><td>冷启动无密度</td><td>找车慢、报价高、取消率升</td><td>单走廊聚焦、锚定货主、核心车队 + 备用池</td><td>GM / 运营</td></tr>
+      <tr><td>客户集中度（现状前二占 75%）</td><td>单一货主应收 / 货量占比超线</td><td>新客拓展、额度上限、替代货量储备——12 个月内降至 ≤50%</td><td>销售 / 财务</td></tr>
+      <tr><td>低毛利增长</td><td>GMV 升但贡献率降</td><td>报价底线、线路 P&amp;L、低毛利强制退出</td><td>财务 / 销售</td></tr>
+      <tr><td>现金断裂</td><td>DSO 升、承运催款、税款挤占</td><td>授信、押金、周结、持牌融资、13 周预测</td><td>财务</td></tr>
+      <tr><td>车辆与司机欺诈</td><td>文件重复、临时换车、位置异常</td><td>KYC、实时证件校验、装车证据、设备指纹</td><td>运力运营</td></tr>
+      <tr><td>货损盗抢事故</td><td>异常集中于特定线路或承运人</td><td>保险、路线与停车规则、升级机制、黑名单</td><td>风控 / 运营</td></tr>
+      <tr><td>油价与等待费波动</td><td>采购价超区间、港口边境拥堵</td><td>燃油联动机制（锚点 110 KES/km）、等待条款、短有效期报价</td><td>定价</td></tr>
+      <tr><td>税务角色错配 / 牌照遗漏</td><td>合同发票支付与实际控制不一致</td><td>principal / agent 分产品、书面税务意见、许可到期阻断</td><td>财务 / 法务</td></tr>
+      <tr><td>政策与大选周期 / 单点依赖</td><td>2027 大选、监管新规；核心人员或银行不可用</td><td>合规前置排雷、监管沟通；资产归公司、双签、备用资金方</td><td>董事会</td></tr>
+    </table>
+  </div>
+  <div class="brandline">非快达 AFRICA FAST ARRIVAL</div><div class="pageno">29</div>
+</div>
+
+<!-- 36 封底 -->
+<div class="slide bg-navy">
+  <div style="position:absolute; inset:0; background:radial-gradient(ellipse 900px 500px at 15% 110%, rgba(232,134,46,.18), transparent 60%);"></div>
+  <img src="file:///home/claude/maps/map_locator.svg" style="position:absolute; right:80px; top:140px; width:400px; opacity:.28;">
+  <div style="position:relative; padding:170px 90px;">
+    <div style="font-size:14px; letter-spacing:7px; color:#e8862e; font-weight:800;">AFRICA FAST ARRIVAL</div>
+    <div style="font-size:52px; font-weight:900; margin-top:22px;">连接非洲，驱动未来</div>
+    <div style="font-size:21px; color:#c9d1dc; margin-top:18px;">先把每一单真正交付，再谈网络效应。</div>
+    <div style="font-size:14px; color:#8b95a5; margin-top:64px; line-height:2.1;">
+      非快达 · AFRICA FAST ARRIVAL DIGITAL TECHNOLOGY LIMITED · 种子轮融资计划书（详细版）<br>
+      contact@africafastarrival.com · +254 728 663 333 · Nairobi &amp; Mombasa, Kenya<br>
+      本文件所载前瞻性陈述基于当前假设，须以外部审计数据替换后锁定。机密文件，未经许可请勿转发。
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
