@@ -19,6 +19,7 @@
   a{color:inherit;text-decoration:none;}
   .wrap{max-width:1120px;margin:0 auto;padding:0 22px;}
   section{padding:72px 0;}
+  section[id],footer[id]{scroll-margin-top:72px;}
   @media(max-width:640px){section{padding:52px 0;}}
 
   /* ---- nav ---- */
@@ -145,6 +146,9 @@
 
   /* ---- team ---- */
   .tcard{background:var(--card);border-radius:16px;padding:22px;border-top:5px solid var(--orange);}
+  .avatar{width:96px;height:96px;border-radius:50%;overflow:hidden;border:3px solid var(--orange);background:var(--navy);margin-bottom:14px;box-shadow:0 6px 16px rgba(13,27,46,.14);}
+  .avatar img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(28%) contrast(1.04) saturate(.92);}
+  .avatar.ph{display:flex;align-items:center;justify-content:center;color:#f0a45e;font-size:34px;font-weight:900;}
   .tcard .role-k{font-size:11.5px;font-weight:900;color:var(--faint);letter-spacing:1px;}
   .tcard .nm{font-size:20px;font-weight:900;color:var(--navy);margin-top:2px;}
   .tcard .rl{font-size:13px;font-weight:800;color:var(--orange-d);margin-top:2px;}
@@ -494,11 +498,11 @@
       <div class="sub">对肯尼亚和中国两个市场都足够了解，兼具 AI 科技、清关物流、产业投资与资本市场背景——每个人都在自己的位置上打过硬仗。</div>
     </div>
     <div class="grid g3">
-      <div class="tcard"><div class="role-k">一号位</div><div class="nm">梁嘉文 Gavin</div><div class="rl">CEO</div><div class="bio">深耕法律 AI 与商业运营 15 年的 AI Native 连续创业者，南京大学毕业；曾创办境内法律科技领域排名第一的公司，将公司做到 10 亿估值、获腾讯等一线资本投资；现联合创立一家香港的跨境出海 AI 科技公司。8 月 15 日起常驻肯尼亚。</div></div>
-      <div class="tcard"><div class="role-k">二号位</div><div class="nm">陈小强 Robin</div><div class="rl">Chairman 董事长</div><div class="bio">深耕东非多年，对非洲产业投资与工业地产有深刻理解；Sigma 联合运营者；负责政商对接与本地化。</div></div>
-      <div class="tcard"><div class="role-k">三号位</div><div class="nm">陈德雷 Austin</div><div class="rl">COO · Sigma CEO</div><div class="bio">深耕清关物流一线，主导 Sigma 做成肯尼亚最大清关公司；负责走廊运营与承运商组织。</div></div>
-      <div class="tcard"><div class="role-k">四号位</div><div class="nm">朱学峰 Steven</div><div class="rl">CRO 首席关系官 · 董事</div><div class="bio">熟悉国内广告与品牌业务，深谙各板块产业情况；负责产业协同与融资资源对接（非独立董事）。</div></div>
-      <div class="tcard"><div class="role-k">五号位</div><div class="nm">程志斌 Alex</div><div class="rl">CFO</div><div class="bio">资深资本与资产管理专家：成功孵化 15 家上市公司、从业累计交易额超 $100 亿；负责公司资本、合规与上市进程管理，兼顾价值发现与产业协同。</div></div>
+      <div class="tcard"><div class="avatar ph">梁</div><div class="role-k">一号位</div><div class="nm">梁嘉文 Gavin</div><div class="rl">CEO</div><div class="bio">深耕法律 AI 与商业运营 15 年的 AI Native 连续创业者，南京大学毕业；曾创办境内法律科技领域排名第一的公司，将公司做到 10 亿估值、获腾讯等一线资本投资；现联合创立一家香港的跨境出海 AI 科技公司。8 月 15 日起常驻肯尼亚。</div></div>
+      <div class="tcard"><div class="avatar ph">陈</div><div class="role-k">二号位</div><div class="nm">陈小强 Robin</div><div class="rl">Chairman 董事长</div><div class="bio">深耕东非多年，对非洲产业投资与工业地产有深刻理解；Sigma 联合运营者；负责政商对接与本地化。</div></div>
+      <div class="tcard"><div class="avatar ph">陈</div><div class="role-k">三号位</div><div class="nm">陈德雷 Austin</div><div class="rl">COO · Sigma CEO</div><div class="bio">深耕清关物流一线，主导 Sigma 做成肯尼亚最大清关公司；负责走廊运营与承运商组织。</div></div>
+      <div class="tcard"><div class="avatar ph">朱</div><div class="role-k">四号位</div><div class="nm">朱学峰 Steven</div><div class="rl">CRO 首席关系官 · 董事</div><div class="bio">熟悉国内广告与品牌业务，深谙各板块产业情况；负责产业协同与融资资源对接（非独立董事）。</div></div>
+      <div class="tcard"><div class="avatar ph">程</div><div class="role-k">五号位</div><div class="nm">程志斌 Alex</div><div class="rl">CFO</div><div class="bio">资深资本与资产管理专家：成功孵化 15 家上市公司、从业累计交易额超 $100 亿；负责公司资本、合规与上市进程管理，兼顾价值发现与产业协同。</div></div>
       <div class="panel"><h4>资金到位后 90 天内补齐</h4><p>Kenya Country GM · 财务 Controller · 走廊运营负责人 ×2 · 风控与索赔负责人 · 本地持牌法务顾问。</p></div>
     </div>
     <div class="note"><b>分工机制：</b>经营与数字化（CEO 梁嘉文）· 政商与本地化（Chairman 陈小强）· 业务一线（COO 陈德雷）· 关系与资源（CRO 朱学峰）· 资本与上市（CFO 程志斌）——各专业各下场，统一于董事会决策。</div>
