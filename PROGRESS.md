@@ -10,5 +10,8 @@
 - 🔄 8/15 现场核数（梁嘉文+陈德雷）：厘清客单价口径、"最大清关公司"依据、票柜对应 → 9 月中锁口径
 - ⬜ 数据校准版 BP（核数完成后 1 周）
 
+## 2026-08-04
+- ✅ 融资官网上线准备：基于精简版 BP（可外发口径）制作单文件响应式融资官网 `src/site_financing.html`（内嵌全部地图 SVG，约 538KB，移动端优先）；发布用 `skills/html-publish`（Lawrence 提供的一键发布 skill）已入库。云端容器网络策略不允许访问 jiarunze.cn，需在本地执行 `bash skills/html-publish/publish.sh src/site_financing.html 非快达融资官网` 获取公网链接。
+
 ## 下一步（一步一步来）
 1. 详细版 BP V5 入库；2. 投资人名单三分类（朱学峰）；3. skills/ 沉淀第一个工作流（Sigma 数据盘点）；4. 评估飞书镜像时点。
