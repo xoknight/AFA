@@ -11,7 +11,9 @@
 - ⬜ 数据校准版 BP（核数完成后 1 周）
 
 ## 2026-08-04
-- ✅ 融资官网上线准备：基于精简版 BP（可外发口径）制作单文件响应式融资官网 `src/site_financing.html`（内嵌全部地图 SVG，约 538KB，移动端优先）；发布用 `skills/html-publish`（Lawrence 提供的一键发布 skill）已入库。云端容器网络策略不允许访问 jiarunze.cn，需在本地执行 `bash skills/html-publish/publish.sh src/site_financing.html 非快达融资官网` 获取公网链接。
+- ✅ 融资官网上线准备：基于精简版 BP（可外发口径）制作单文件响应式融资官网 `src/site_financing.html`（内嵌全部地图 SVG，约 538KB，移动端优先）；发布用 `skills/html-publish`（Lawrence 提供的一键发布 skill）已入库。
+- ✅ 融资官网已发布公网（梁嘉文本地执行 publish.sh）：**https://jiarunze.cn/p/feikuaida.html**（noindex 不被搜索收录；改版后重跑 `python3 src/build_site.py` + `bash skills/html-publish/publish.sh src/site_financing.html 非快达融资官网` 即更新）
+- 🔄 团队头像：官网已留统一风格头像位（占位姓氏版），待高管照片文件入库 `assets/photos/{gavin,robin,austin,steven,alex}.jpg` 后重建替换。
 
 ## 下一步（一步一步来）
 1. 详细版 BP V5 入库；2. 投资人名单三分类（朱学峰）；3. skills/ 沉淀第一个工作流（Sigma 数据盘点）；4. 评估飞书镜像时点。
