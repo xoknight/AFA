@@ -13,7 +13,14 @@
 ## 2026-08-04
 - ✅ 融资官网上线准备：基于精简版 BP（可外发口径）制作单文件响应式融资官网 `src/site_financing.html`（内嵌全部地图 SVG，约 538KB，移动端优先）；发布用 `skills/html-publish`（Lawrence 提供的一键发布 skill）已入库。
 - ✅ 融资官网已发布公网（梁嘉文本地执行 publish.sh）：**https://jiarunze.cn/p/feikuaida.html**（noindex 不被搜索收录；改版后重跑 `python3 src/build_site.py` + `bash skills/html-publish/publish.sh src/site_financing.html 非快达融资官网` 即更新）
-- 🔄 团队头像：官网已留统一风格头像位（占位姓氏版），待高管照片文件入库 `assets/photos/{gavin,robin,austin,steven,alex}.jpg` 后重建替换。
+- ✅ 团队头像：官网已留统一风格头像位（占位姓氏版）→ 2026-08-05 已由 beta1.0 BP 提取真实头像替换。
+
+## 2026-08-05
+- ✅ 官网 V2 上线：对齐 beta1.0 详细版 BP 新视觉——绿主色 #348f41 + logo 三色（橙 #ff9e19 / 红 #e1251a）+ 墨黑 #17181a；nav/页脚放 AFA logo；hero 文案与团队介绍（梁嘉文/陈德雷）同步 BP 口径；Sigma 卡片补加权客单 $2,357/柜。
+- ✅ 高管头像上线：五张照片自 beta1.0 BP 团队页按姓名位次提取，入库 `assets/photos/{gavin,robin,austin,steven,alex}.png`；logo 入库 `assets/brand/logo.png`；beta1.0 BP 入库 assets/pdf。
+- ⚠️ 公网链接更换：原 `feikuaida.html` 已在服务器端失效（404，不在发布列表）。现行链接：**https://jiarunze.cn/p/feikuaida-c532fef8.html**（另有一个重复发布的 page-aa1568f3.html 可忽略）。改版流程不变：`python3 src/build_site.py` + `bash skills/html-publish/publish.sh src/site_financing.html feikuaida`（注意每次发布会生成新后缀链接，发出前先确认最新地址）。
+
+- ✅ 对外展示官网上线（与融资页分离）：`src/site_corporate.template.html` → **https://jiarunze.cn/p/feikuaida-guanwang-0891533c.html**。对外版已剔除全部融资敏感内容（轮次条款/估值/财务预测/里程碑拨付/利润与客单数据/线路成本基准），保留公司介绍、服务、Sigma 基本盘、核心线路、AI 原生、团队、合规。正式域名上线后整体迁移。
 
 ## 下一步（一步一步来）
 1. 详细版 BP V5 入库；2. 投资人名单三分类（朱学峰）；3. skills/ 沉淀第一个工作流（Sigma 数据盘点）；4. 评估飞书镜像时点。
