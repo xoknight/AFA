@@ -22,5 +22,11 @@
 
 - ✅ 对外展示官网上线（与融资页分离）：`src/site_corporate.template.html` → **https://jiarunze.cn/p/feikuaida-guanwang-0891533c.html**。对外版已剔除全部融资敏感内容（轮次条款/估值/财务预测/里程碑拨付/利润与客单数据/线路成本基准），保留公司介绍、服务、Sigma 基本盘、核心线路、AI 原生、团队、合规。正式域名上线后整体迁移。
 
+## 2026-08-06
+- ✅ 商业模式升级定稿（依据 8/5 董事会）：全链条 DDP + 责任爬坡 L1–L4 + Sigma 融合三段式，见 docs/02-business/全链条商业模式与Sigma融合.md 与同目录肯尼亚贸易术语研究；DECISIONS.md 已记录。
+- ✅ 官网双页同步升级「全条款履约（FOB/CIF/DAP/DDP）+ 海空双通道」并重新发布——**最新链接**：融资页 https://jiarunze.cn/p/feikuaida-b7af91c3.html · 对外官网 https://jiarunze.cn/p/feikuaida-guanwang-32258805.html（此前各后缀链接作废）。
+- ✅ 精简版 BP HTML 源（src/bp_seed.html）模式页与商业模型页同步口径。
+- ⬜ beta1.0 详细版 BP PDF 模式页待同步修订（全条款+海空双通道；梁嘉文改版时带入）。
+
 ## 下一步（一步一步来）
 1. 详细版 BP V5 入库；2. 投资人名单三分类（朱学峰）；3. skills/ 沉淀第一个工作流（Sigma 数据盘点）；4. 评估飞书镜像时点。

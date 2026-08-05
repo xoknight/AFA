@@ -101,6 +101,16 @@
   .glass h4{font-size:18px;font-weight:900;color:var(--gold);margin-bottom:10px;}
   .glass p{font-size:14px;color:#c9cccc;line-height:1.85;}
 
+
+  /* ---- incoterm ladder ---- */
+  .terms-lead{margin-top:34px;font-size:15px;font-weight:800;color:var(--dark);}
+  .terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;margin-top:14px;}
+  .term{background:var(--card);border-radius:14px;padding:16px 18px;border-left:5px solid var(--green);}
+  .bg-sand .term{background:#fff;box-shadow:0 3px 14px rgba(23,24,26,.06);}
+  .term .tk{font-size:15.5px;font-weight:900;color:var(--dark);letter-spacing:.3px;}
+  .term .tk small{font-size:11.5px;font-weight:800;color:var(--green-d);margin-left:6px;}
+  .term p{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.65;}
+
   /* ---- why-now ---- */
   .why{display:flex;gap:18px;align-items:flex-start;}
   .why .zi{font-size:34px;font-weight:900;color:var(--green);flex:none;line-height:1.2;}
@@ -222,7 +232,7 @@
     <div class="kicker">Africa Fast Arrival Digital Technology Limited</div>
     <h1>非快达</h1>
     <div class="tag">AI 原生的东非数字货运平台</div>
-    <div class="lede">以肯尼亚最大清关公司 Sigma 为业务基本盘，打造对每一单交付结果负责的数字货运网络——清关、干线运输、全程数字跟踪，一个责任窗口全程兜底。</div>
+    <div class="lede">以肯尼亚最大清关公司 Sigma 为业务基本盘，打造对每一单交付结果负责的综合物流网络——清关、干线与海空运输、全程数字跟踪，一个责任窗口全程兜底。</div>
     <div class="chips">
       <span class="chip">非洲出海</span>
       <span class="chip">刚需货运</span>
@@ -254,7 +264,7 @@
     <div class="grid g2">
       <div class="panel">
         <h4>我们做什么</h4>
-        <p>做东非干线货运的「京东物流」：以清关为核心抓手，平台统一报价、指派认证车队、全程数字跟踪，<b>对每一单交付结果负责</b>。Sigma 做线下、我们做线上——Sigma 是平台的<b>第一个大客户（可控、业务真实）</b>，以这盘业务为辐射点先跑通平台，再覆盖其他货运平台、物流公司与清关公司。</p>
+        <p>做东非的「京东物流」：以清关为核心抓手，覆盖海运、空运与干线运输的综合物流全链条，平台统一报价、指派认证车队、全程数字跟踪，<b>对每一单交付结果负责</b>。Sigma 做线下、我们做线上——Sigma 是平台的<b>第一个大客户（可控、业务真实）</b>，以这盘业务为辐射点先跑通平台，再覆盖其他货运平台、物流公司与清关公司。</p>
       </div>
       <div class="panel">
         <h4>为什么是我们</h4>
@@ -349,7 +359,7 @@
     <div class="grid g3">
       <div class="panel">
         <h4>一句话讲清模式</h4>
-        <p>货主把货交给我们，剩下的事我们负责到底——价格、车辆、在途、交付，一个责任窗口全程兜底。<b>确定性就是我们的品牌</b>。（「责任型 3PL」：3PL 即第三方物流，货主把物流环节整体外包给专业公司；「责任型」指我们进一步对每一单的交付结果负责。）</p>
+        <p>货主把货交给我们，剩下的事我们负责到底——价格、车辆、在途、交付，一个责任窗口全程兜底。<b>确定性就是我们的品牌</b>。覆盖 <b>FOB / CIF / DAP / DDP 全条款</b>与海运、空运双通道。（「责任型 3PL」：3PL 即第三方物流，货主把物流环节整体外包给专业公司；「责任型」指我们进一步对每一单的交付结果负责。）</p>
       </div>
       <div class="panel">
         <h4>用 AI 来做运营</h4>
@@ -357,9 +367,16 @@
       </div>
       <div class="panel dark">
         <h4>先自营，后开放</h4>
-        <p>清关及关务、干线整车运输、仓储与跨境延伸——以蒙内走廊为起点，服务网络正在向东非区域扩展。</p>
+        <p>清关关务、干线整车、海运订舱与空运通道、仓储与跨境延伸——以蒙内走廊为起点，服务网络正在向东非区域扩展。</p>
         <p style="margin-top:10px;"><b>先把每一单真正送达，再谈网络效应。</b></p>
       </div>
+    </div>
+    <div class="terms-lead">全条款履约：无论你的供应商报什么条款，从那一段起我们接管到门——一个责任窗口、一口价到门。</div>
+    <div class="terms">
+      <div class="term"><div class="tk">CIF 到港接管<small>现在就有</small></div><p>供应商送到蒙巴萨港为止——我们接管换单、清关、缴税与干线运输。</p></div>
+      <div class="term"><div class="tk">FOB 接管</div><p>供应商装船为止——我们从海运订舱与保险起全程接管。</p></div>
+      <div class="term"><div class="tk">合规 DDP 全链</div><p>中国工厂到东非门点，含税一口价。真实申报、不做低申报——确定性就是品牌。</p></div>
+      <div class="term"><div class="tk">海空双通道</div><p>蒙巴萨港海运 + JKIA 机场空运（高货值高时效）全环节覆盖，跨境延伸乌干达/坦桑尼亚。</p></div>
     </div>
   </div>
 </section>
