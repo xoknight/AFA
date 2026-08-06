@@ -6,6 +6,7 @@
 #   dist/index.html              对外官网 中文版（可被搜索收录，含 SEO/OG/favicon/hreflang）
 #   dist/en/index.html           对外官网 英文版（同一模板 + src/site_i18n.py 文案表渲染）
 #   dist/ir/<TOKEN>/index.html   融资页（隐蔽路径 + noindex/nofollow，无任何链接指向）
+#   dist/demo/*                  产品原型中心与三端 Demo（noindex，不从官网链接）
 #   dist/img/*                   官网图片（由 src/build_assets.py 从 VI 设计稿提取）
 #   dist/404.html  robots.txt  sitemap.xml  _headers  _redirects  favicon/og 图
 #
@@ -23,6 +24,16 @@ from site_i18n import LOCALES, MAIL          # noqa: E402  官网双语文案表
 
 # 各语言版本的路径：中文在根，英文在 /en/
 PATHS = {'zh': '', 'en': 'en/'}
+
+# 原型源文件 → 公司域名稳定路径。页面全部 noindex，不加入 sitemap。
+PROTOTYPES = {
+    'index.html': 'demo/index.html',
+    'afa-customer-demo.html': 'demo/customer/index.html',
+    'afa-control-tower.html': 'demo/control-tower/index.html',
+    'sigma-data-wall.html': 'demo/data-wall/index.html',
+    'afa-whatsapp-assistant.html': 'demo/whatsapp/index.html',
+    'afa-customer-h5.html': 'demo/orders/index.html',
+}
 
 # 融资页仍是中文单页，用中文口径做 head
 DESC = LOCALES['zh']['desc']
@@ -166,6 +177,22 @@ def transform(src: pathlib.Path, public: bool) -> str:
     return html.replace(ROBOTS_META, HEAD_PRIVATE, 1)
 
 
+def render_prototype(name: str) -> str:
+    """把本地原型中的相对链接改成公司域名下的稳定路由。"""
+    html = (ROOT / 'prototype' / name).read_text(encoding='utf-8')
+    replacements = {
+        '../assets/brand/logo.png': '/img/afa-logo.png',
+        'afa-customer-demo.html': '/demo/customer/',
+        'afa-control-tower.html': '/demo/control-tower/',
+        'sigma-data-wall.html': '/demo/data-wall/',
+        'afa-whatsapp-assistant.html': '/demo/whatsapp/',
+        'afa-customer-h5.html': '/demo/orders/',
+    }
+    for old, new in replacements.items():
+        html = html.replace(old, new)
+    return html
+
+
 # ---------- 附属文件 ----------
 
 NOT_FOUND = '''<!DOCTYPE html>
@@ -193,6 +220,7 @@ a{display:inline-block;background:#FB6601;color:#fff;font-weight:800;font-size:1
 ROBOTS = f'''User-agent: *
 Allow: /
 Disallow: /ir/
+Disallow: /demo/
 
 Sitemap: {DOMAIN}/sitemap.xml
 '''
@@ -220,6 +248,11 @@ HEADERS = '''/*
   Strict-Transport-Security: max-age=31536000; includeSubDomains
 
 /ir/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+  Referrer-Policy: no-referrer
+  Cache-Control: private, no-store
+
+/demo/*
   X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
   Referrer-Policy: no-referrer
   Cache-Control: private, no-store
@@ -256,6 +289,7 @@ def main():
     for p in sorted((ROOT / 'assets' / 'site').iterdir()):
         if p.suffix.lower() in ('.jpg', '.png', '.webp', '.svg'):
             shutil.copy2(p, img / p.name)
+    shutil.copy2(ROOT / 'assets' / 'brand' / 'logo.png', img / 'afa-logo.png')
 
     for locale, path in PATHS.items():
         page = DIST / path / 'index.html'
@@ -263,6 +297,10 @@ def main():
         page.write_text(render_corporate(locale), encoding='utf-8')
     (ir_dir / 'index.html').write_text(
         transform(ROOT / 'src' / 'site_financing.html', public=False), encoding='utf-8')
+    for src_name, out_name in PROTOTYPES.items():
+        page = DIST / out_name
+        page.parent.mkdir(parents=True, exist_ok=True)
+        page.write_text(render_prototype(src_name), encoding='utf-8')
 
     (DIST / '404.html').write_text(NOT_FOUND, encoding='utf-8')
     (DIST / 'robots.txt').write_text(ROBOTS, encoding='utf-8')
@@ -283,6 +321,7 @@ def main():
     print(f'\n对外官网 中文  {DOMAIN}/')
     print(f'对外官网 English  {DOMAIN}/en/')
     print(f'融资页（隐蔽路径）  {DOMAIN}/ir/{IR_TOKEN}/')
+    print(f'产品原型中心（noindex）  {DOMAIN}/demo/')
 
 
 if __name__ == '__main__':

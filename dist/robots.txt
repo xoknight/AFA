@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /ir/
+Disallow: /demo/
 
 Sitemap: https://afafreight.com/sitemap.xml

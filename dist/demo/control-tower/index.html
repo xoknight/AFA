@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>AFA 控制塔 · 原型 v0.1</title>
+  <style>
+    :root{--navy:#052551;--navy2:#0a376f;--orange:#fb6601;--ink:#172033;--muted:#67748a;--line:#dfe5ec;--bg:#f4f6f8;--white:#fff;--green:#1b8c5a;--red:#d54343;--amber:#d98a00;--blue:#2773d2;--r:16px;--shadow:0 12px 32px rgba(5,37,81,.08)}
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Inter,"PingFang SC","Microsoft YaHei",sans-serif} button,input,select{font:inherit} button{cursor:pointer}
+    .app{min-height:100vh;display:grid;grid-template-columns:236px 1fr}
+    .side{background:var(--navy);color:#fff;padding:24px 16px;display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+    .brand{display:flex;align-items:center;gap:11px;padding:0 10px 24px}.mark{width:42px;height:42px;border:2px solid var(--orange);border-radius:13px;display:grid;place-items:center;font-weight:900;letter-spacing:-2px}.brand b{font-size:17px;display:block}.brand small{color:#9eb2ce;font-size:10px;letter-spacing:.08em}
+    .nav-label{color:#7690b2;font-size:10px;font-weight:800;letter-spacing:.13em;padding:16px 12px 7px}.nav button{width:100%;border:0;background:transparent;color:#b8c8db;text-align:left;padding:11px 12px;border-radius:10px;margin:2px 0;display:flex;align-items:center;gap:11px}.nav button:hover,.nav button.active{background:#123b70;color:#fff}.ico{width:21px;text-align:center;font-size:16px}.count{margin-left:auto;background:var(--orange);color:#fff;border-radius:99px;padding:1px 7px;font-size:11px;font-weight:800}
+    .side-foot{margin-top:auto;border-top:1px solid #274b78;padding:16px 10px 0;color:#adc0d6}.avatar{width:33px;height:33px;border-radius:50%;background:var(--orange);display:grid;place-items:center;color:white;font-weight:800}.person{display:flex;gap:10px;align-items:center}.person small{display:block;color:#7893b4}
+    .main{min-width:0}.top{height:72px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 28px;position:sticky;top:0;z-index:5}.top h1{font-size:18px;margin:0}.crumb{color:var(--muted);font-size:12px}.top-actions{margin-left:auto;display:flex;align-items:center;gap:10px}.search{border:1px solid var(--line);background:#f8fafc;border-radius:10px;padding:9px 12px;width:220px}.btn{border:0;border-radius:10px;padding:10px 15px;font-weight:750}.primary{background:var(--orange);color:#fff}.ghost{background:#fff;border:1px solid var(--line);color:var(--navy)}
+    .page{padding:26px 28px 42px;display:none}.page.active{display:block}.intro{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px}.intro h2{font-size:25px;margin:0 0 5px;color:var(--navy)}.intro p{margin:0;color:var(--muted)}.date-chip{background:#e8eef6;color:var(--navy);padding:7px 11px;border-radius:99px;font-size:12px;font-weight:700}
+    .metrics{display:grid;grid-template-columns:repeat(6,1fr);gap:13px}.metric{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:17px;box-shadow:0 3px 12px rgba(5,37,81,.03)}.metric .lab{color:var(--muted);font-size:12px}.metric .num{font-size:27px;font-weight:850;color:var(--navy);margin:6px 0}.metric .delta{font-size:11px}.good{color:var(--green)}.warn{color:var(--amber)}.bad{color:var(--red)}
+    .grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,.8fr);gap:16px;margin-top:16px}.panel{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:0 3px 12px rgba(5,37,81,.03)}.panel-h{display:flex;align-items:center;padding:17px 19px;border-bottom:1px solid var(--line)}.panel-h h3{margin:0;font-size:15px;color:var(--navy)}.panel-h span{color:var(--muted);font-size:12px;margin-left:8px}.panel-h a{margin-left:auto;color:var(--blue);font-size:12px}.panel-b{padding:16px 19px}
+    .task{display:grid;grid-template-columns:8px 1fr auto;gap:12px;padding:13px 0;border-bottom:1px solid #edf0f4}.task:last-child{border:0}.dot{width:8px;height:8px;border-radius:50%;margin-top:7px}.dot.red{background:var(--red)}.dot.orange{background:var(--orange)}.dot.blue{background:var(--blue)}.task b{display:block;font-size:13px}.task small{color:var(--muted)}.task button{border:0;background:#eef3f8;color:var(--navy);border-radius:8px;padding:7px 10px;font-weight:700}
+    .route{display:flex;align-items:center;gap:10px;padding:9px 0}.route .line{height:4px;flex:1;background:#e7ebf0;border-radius:4px;overflow:hidden}.route .line i{display:block;height:100%;background:var(--orange)}.route strong{font-size:12px;min-width:105px}.route span{font-size:11px;color:var(--muted)}
+    .source-line{margin:0 0 14px;background:#eaf2fd;border:1px solid #cfe0f5;color:#315b8f;border-radius:10px;padding:9px 12px;font-size:11px}.source-line b{color:var(--navy)}
+    .trend{height:190px;display:flex;align-items:flex-end;gap:8px;padding-top:16px}.month{height:100%;flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:5px}.month .bar{width:100%;max-width:32px;min-height:6px;background:#b9c9dc;border-radius:5px 5px 2px 2px;position:relative}.month .bar.hot{background:linear-gradient(#fb8a3f,var(--orange))}.month em{font-size:10px;color:var(--muted);font-style:normal}.month strong{font-size:9px;color:#536176;font-weight:700}.shares{display:grid;grid-template-columns:repeat(6,1fr);height:18px;border-radius:99px;overflow:hidden;margin:18px 0 9px}.shares i:nth-child(1){background:#052551;grid-column:span 3}.shares i:nth-child(2){background:#28619e;grid-column:span 2}.shares i:nth-child(3){background:#fb6601}.share-legend{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:11px;color:var(--muted)}
+    .ai{background:linear-gradient(145deg,#052551,#0b458c);color:#fff;border:0}.ai .panel-h{border-color:#31527d}.ai .panel-h h3{color:#fff}.ai .panel-h span{color:#9db3cf}.ai-note{padding:10px 12px;background:rgba(255,255,255,.08);border-radius:10px;margin-bottom:10px}.ai-note b{color:#ff9b57}.ai-note p{margin:5px 0 0;color:#d5e0ee;font-size:12px}.ai .btn{width:100%;margin-top:4px}
+    .quote-layout{display:grid;grid-template-columns:360px 1fr;gap:16px}.chat{background:#eef3f0;border-radius:12px;padding:15px;min-height:430px}.bubble{max-width:88%;padding:11px 13px;border-radius:13px;margin:10px 0;font-size:13px}.in{background:white;border-bottom-left-radius:3px}.out{background:#b9f2c7;margin-left:auto;border-bottom-right-radius:3px}.chat-time{text-align:center;color:#8b969f;font-size:10px;margin:8px}.extract{margin-top:14px;background:#fff6ef;border:1px solid #ffd7bd;border-radius:12px;padding:12px}.extract b{color:#9c3f00}.confidence{float:right;background:#ffe1ce;color:#9c3f00;border-radius:99px;padding:2px 7px;font-size:10px}
+    .form-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.field label{font-size:11px;color:var(--muted);display:block;margin-bottom:5px}.field input,.field select{width:100%;border:1px solid var(--line);border-radius:9px;padding:9px 10px;background:#fff;color:var(--ink)}.needs input{border-color:#f2a66f;background:#fffaf6}.flag{font-size:10px;color:#b14c05;margin-top:3px}.quote-table{width:100%;border-collapse:collapse;margin-top:16px}.quote-table th,.quote-table td{text-align:left;border-bottom:1px solid var(--line);padding:11px 8px}.quote-table th{font-size:11px;color:var(--muted);background:#f8fafc}.quote-table td:last-child,.quote-table th:last-child{text-align:right}.total{display:flex;justify-content:flex-end;gap:28px;align-items:center;padding:15px 8px}.total strong{font-size:22px;color:var(--navy)}.notice{background:#f2f6fb;border-radius:10px;padding:11px 12px;color:#526277;font-size:12px}.quote-actions{display:flex;justify-content:flex-end;gap:9px;margin-top:15px}
+    .filters{display:flex;gap:9px;margin-bottom:14px}.filters button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:7px 12px;color:var(--muted)}.filters button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
+    table.orders{width:100%;border-collapse:collapse}.orders th,.orders td{padding:13px 15px;text-align:left;border-bottom:1px solid var(--line)}.orders th{font-size:11px;color:var(--muted);background:#f7f9fb}.orders tr:hover{background:#fbfcfd}.orders td:first-child{font-weight:800;color:var(--navy)}.pill{display:inline-flex;align-items:center;border-radius:99px;padding:4px 8px;font-size:10px;font-weight:750}.p-green{background:#e4f5ed;color:#147248}.p-orange{background:#fff0e6;color:#ae4b08}.p-red{background:#feeaea;color:#b92d2d}.p-blue{background:#eaf2fd;color:#1f62b6}
+    .tracking-shell{max-width:430px;margin:0 auto;background:#fff;min-height:690px;border-radius:28px;border:8px solid #1a2432;box-shadow:var(--shadow);overflow:hidden}.track-head{background:var(--navy);color:#fff;padding:24px 20px 20px}.track-brand{font-weight:850;letter-spacing:.04em;color:#fff}.track-brand span{color:var(--orange)}.track-head h3{font-size:21px;margin:25px 0 4px}.track-head p{margin:0;color:#afc1d8}.eta{margin:17px 0 0;background:rgba(255,255,255,.1);border-radius:12px;padding:12px;display:flex;justify-content:space-between}.eta strong{color:#fff}.track-body{padding:20px}.track-summary{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini{background:#f5f7fa;padding:11px;border-radius:10px}.mini small{display:block;color:var(--muted)}.timeline{margin-top:22px}.step{display:grid;grid-template-columns:22px 1fr;gap:10px;position:relative;padding-bottom:19px}.step:before{content:"";position:absolute;left:7px;top:17px;bottom:0;border-left:2px solid #d9e0e8}.step:last-child:before{display:none}.step-dot{width:16px;height:16px;border-radius:50%;background:#d5dce5;border:4px solid #edf1f5}.step.done .step-dot{background:var(--green);border-color:#cfefdf}.step.now .step-dot{background:var(--orange);border-color:#ffe0cc}.step b{display:block;font-size:13px}.step small{color:var(--muted)}
+    .toast{position:fixed;right:24px;bottom:24px;background:#10233d;color:#fff;padding:13px 17px;border-radius:11px;box-shadow:var(--shadow);transform:translateY(90px);opacity:0;transition:.25s;z-index:20}.toast.show{transform:none;opacity:1}.mobile-nav{display:none}
+    @media(max-width:1050px){.metrics{grid-template-columns:repeat(3,1fr)}.quote-layout{grid-template-columns:1fr}.form-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:760px){.app{display:block}.side{display:none}.top{padding:0 16px;height:62px}.search{display:none}.page{padding:18px 14px 90px}.metrics{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.intro{align-items:flex-start}.date-chip{display:none}.form-grid{grid-template-columns:1fr}.orders th:nth-child(3),.orders td:nth-child(3),.orders th:nth-child(5),.orders td:nth-child(5){display:none}.mobile-nav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);z-index:10}.mobile-nav button{border:0;background:#fff;padding:10px 3px;color:var(--muted);font-size:10px}.mobile-nav button.active{color:var(--orange)}.mobile-nav i{display:block;font-size:18px;font-style:normal}.tracking-shell{border-width:5px}.top-actions .btn.ghost{display:none}}
+  </style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><div class="mark">AFA</div><div><b>非快达控制塔</b><small>AFRICA FAST ARRIVAL</small></div></div>
+    <div class="nav-label">工作台</div>
+    <nav class="nav">
+      <button class="active" data-page="dashboard"><span class="ico">⌂</span>今日控制塔</button>
+      <button data-page="quote"><span class="ico">✦</span>询价与报价<span class="count">3</span></button>
+      <button data-page="orders"><span class="ico">▤</span>运单中心</button>
+      <button data-page="tracking"><span class="ico">◎</span>客户追踪页</button>
+    </nav>
+    <div class="nav-label">管理</div>
+    <nav class="nav"><button data-demo="soon"><span class="ico">◫</span>客户与车队</button><button data-demo="soon"><span class="ico">↗</span>数据与复盘</button></nav>
+    <div class="side-foot"><div class="person"><div class="avatar">梁</div><div>梁嘉文<small>CEO · 管理员</small></div></div></div>
+  </aside>
+  <main class="main">
+    <header class="top"><div><div class="crumb">非快达 / 运营工作台</div><h1 id="page-title">今日控制塔</h1></div><div class="top-actions"><input class="search" placeholder="搜索订单、客户、柜号"><button class="btn ghost" data-demo="soon">导出日报</button><button class="btn primary" data-page="quote">＋ 新建询价</button></div></header>
+
+    <section class="page active" id="dashboard">
+      <div class="intro"><div><h2>早上好，Gavin</h2><p>基于 Sigma 2025-09 至 2026-08 数据生成的运营模拟。</p></div><div class="date-chip">2026 年 8 月 7 日 · 内罗毕 08:20</div></div>
+      <div class="source-line"><b>数据边界：</b>月度柜量、票数、客户集中度、价格、线路与运力来自 Sigma 首轮粗数；今日状态、SLA、异常和单票时间均为模拟，待现场核数。</div>
+      <div class="metrics">
+        <div class="metric"><div class="lab">2026-08 柜量</div><div class="num">1,020</div><div class="delta good">12 个月从 33 柜增长至月千柜</div></div>
+        <div class="metric"><div class="lab">2026-08 票数</div><div class="num">150</div><div class="delta">平均 6.8 柜 / 票 · 待核口径</div></div>
+        <div class="metric"><div class="lab">加权客单价</div><div class="num">$2,357</div><div class="delta warn">是否含代收代垫待核</div></div>
+        <div class="metric"><div class="lab">海运 / 空运</div><div class="num">75 / 25</div><div class="delta">空运“柜”折算口径待核</div></div>
+        <div class="metric"><div class="lab">可调度车辆</div><div class="num">585+</div><div class="delta">8 家车队 · 账期 14–45 天</div></div>
+        <div class="metric"><div class="lab">回程配载率</div><div class="num">5%</div><div class="delta bad">平台优化的核心基线</div></div>
+      </div>
+      <div class="grid">
+        <div class="panel"><div class="panel-h"><h3>行动队列</h3><span>按客户影响与 SLA 自动排序</span><a>查看全部 8 项</a></div><div class="panel-b">
+          <div class="task"><i class="dot red"></i><div><b>AFA-SIM-017 · 海关查验等待 5h 20m</b><small>EPZ 光伏客户 A · 40HQ · 资料齐全，等待查验窗口</small></div><button data-demo="handled">介入</button></div>
+          <div class="task"><i class="dot orange"></i><div><b>AFA-SIM-021 · 低置信报价需人工确认</b><small>新客户 · 货值与 HS Code 在聊天中表述不一致</small></div><button data-page="quote">确认</button></div>
+          <div class="task"><i class="dot orange"></i><div><b>AFA-SIM-088 · POD 尚未上传</b><small>司机已到达 3h 42m · 距模拟 SLA 仅余 18 分钟</small></div><button data-demo="reminded">催办</button></div>
+          <div class="task"><i class="dot blue"></i><div><b>3 张报价将在今天 16:00 前失效</b><small>建议优先跟进预计贡献率最高的 Athi River 订单</small></div><button data-page="quote">查看</button></div>
+        </div></div>
+        <div><div class="panel ai"><div class="panel-h"><h3>AI 运营晨报</h3><span>模拟 · 07:55 生成</span></div><div class="panel-b"><div class="ai-note"><b>最值得先处理</b><p>查验订单 AFA-SIM-017 已接近模拟承诺窗口。建议 Austin 在 09:00 前确认查验排队号并通知客户。</p></div><div class="ai-note"><b>结构性风险</b><p>前两大客户贡献 75% 柜量；新增客户与应收风控应当同时推进，避免单一客户超过 25%。</p></div><button class="btn primary" data-demo="brief">生成管理层摘要</button></div></div>
+        <div class="panel" style="margin-top:16px"><div class="panel-h"><h3>已验证线路基线</h3></div><div class="panel-b"><div class="route"><strong>蒙巴萨 → Konza</strong><div class="line"><i style="width:72%"></i></div><span>采购 $1,250</span></div><div class="route"><strong>蒙巴萨 → Athi River</strong><div class="line"><i style="width:82%"></i></div><span>采购 $1,311</span></div><div class="route"><strong>蒙巴萨 → Tatu City</strong><div class="line"><i style="width:90%"></i></div><span>采购 $1,350</span></div></div></div></div>
+      </div>
+      <div class="grid">
+        <div class="panel"><div class="panel-h"><h3>12 个月业务爬坡</h3><span>柜量 · 2025-09 → 2026-08</span></div><div class="panel-b"><div class="trend"><div class="month"><strong>33</strong><div class="bar" style="height:3%"></div><em>9月</em></div><div class="month"><strong>54</strong><div class="bar" style="height:5%"></div><em>10月</em></div><div class="month"><strong>76</strong><div class="bar" style="height:7%"></div><em>11月</em></div><div class="month"><strong>101</strong><div class="bar" style="height:10%"></div><em>12月</em></div><div class="month"><strong>150</strong><div class="bar" style="height:15%"></div><em>1月</em></div><div class="month"><strong>122</strong><div class="bar" style="height:12%"></div><em>2月</em></div><div class="month"><strong>265</strong><div class="bar" style="height:26%"></div><em>3月</em></div><div class="month"><strong>314</strong><div class="bar" style="height:31%"></div><em>4月</em></div><div class="month"><strong>501</strong><div class="bar" style="height:49%"></div><em>5月</em></div><div class="month"><strong>804</strong><div class="bar" style="height:79%"></div><em>6月</em></div><div class="month"><strong>946</strong><div class="bar" style="height:93%"></div><em>7月</em></div><div class="month"><strong>1,020</strong><div class="bar hot" style="height:100%"></div><em>8月</em></div></div></div></div>
+        <div class="panel"><div class="panel-h"><h3>客户集中度</h3><span>按 2026-08 柜量份额</span></div><div class="panel-b"><div class="shares"><i></i><i></i><i></i></div><div class="share-legend"><span>● 客户 A 45%</span><span>● 客户 B 30%</span><span>● 其余 25%</span></div><div class="notice" style="margin-top:18px">前二客户占 75%，高于单一货主 ≤25% 的目标线。原型中客户名称已匿名化。</div></div></div>
+      </div>
+    </section>
+
+    <section class="page" id="quote">
+      <div class="intro"><div><h2>把聊天变成可确认的报价</h2><p>AI 负责提取与草拟；价格、合规、锁价必须由人确认。</p></div><div class="date-chip">草稿 Q-SIM-003 · Sigma 数据模拟</div></div>
+      <div class="quote-layout">
+        <div class="panel"><div class="panel-h"><h3>微信客户群</h3><span>EPZ 光伏客户 A · 匿名</span></div><div class="panel-b"><div class="chat"><div class="chat-time">今天 08:02</div><div class="bubble in">@AFA 下周有一柜光伏组件到蒙巴萨，40HQ，CIF。送到 Athi River EPZ，提单稍后发。货值大概 100 万美金，麻烦报清关、税和送仓。</div><div class="bubble out">收到。我先生成分段报价草稿，还需要确认 HS Code、预计到港日和是否已有 CoC。</div><div class="bubble in">HS 854143，预计 8 月 12 日到港，CoC 已经在办。</div><div class="extract"><span class="confidence">AI 置信度 91%</span><b>已识别 8 / 10 个字段</b><div style="margin-top:6px;color:#6e533f;font-size:12px">缺失：提单号、CoC 文件；$100 万货值来自 Sigma 同类组件柜基线，仍需凭证确认。</div></div></div></div></div>
+        <div class="panel"><div class="panel-h"><h3>结构化询价与报价草稿</h3><span>所有修改自动留痕</span></div><div class="panel-b">
+          <div class="form-grid">
+            <div class="field"><label>服务产品</label><select><option>S1 · CIF 到港接管</option></select></div><div class="field"><label>柜型</label><input value="40HQ"></div><div class="field"><label>到港 / 起点</label><input value="Mombasa Port"></div>
+            <div class="field"><label>送达门点</label><input value="Athi River EPZ"></div><div class="field"><label>HS Code</label><input value="854143"></div><div class="field"><label>预计到港</label><input value="2026-08-12"></div>
+            <div class="field needs"><label>申报货值（USD）</label><input value="1,000,000"><div class="flag">需凭证确认</div></div><div class="field needs"><label>提单号</label><input placeholder="待客户补充"><div class="flag">缺失字段</div></div><div class="field needs"><label>CoC 状态</label><select><option>办理中 · 待上传</option></select><div class="flag">放行前必须校验</div></div>
+          </div>
+          <table class="quote-table"><thead><tr><th>报价分段</th><th>计价依据</th><th>状态</th><th>金额 USD</th></tr></thead><tbody><tr><td>换单、清关与责任服务</td><td>40HQ · 框架客户模拟</td><td><span class="pill p-orange">拆分待核</span></td><td>模拟 789</td></tr><tr><td>税费预估</td><td>HS + CIF · 实报实销</td><td><span class="pill p-orange">待凭证</span></td><td>不计入</td></tr><tr><td>蒙巴萨—Athi River 干线</td><td>Sigma 采购基线</td><td><span class="pill p-green">已有粗数</span></td><td>1,311</td></tr></tbody></table>
+          <div class="total"><span>服务报价合计（不含税费）</span><strong>USD 2,100</strong></div><div class="notice">总价取 Sigma 头部框架客户价格基线 $2,100/柜，干线采购基线为 $1,311；$789 仅是倒算余项，不能视为清关收入或利润。税费、收入确认与 SLA 均待现场核数。本页不构成真实报价。</div><div class="quote-actions"><button class="btn ghost" data-demo="saved">保存草稿</button><button class="btn ghost" data-demo="pdf">预览客户报价单</button><button class="btn primary" id="confirm-quote">人工确认并发送</button></div>
+        </div></div>
+      </div>
+    </section>
+
+    <section class="page" id="orders">
+      <div class="intro"><div><h2>运单中心</h2><p>一票一账：状态、责任人、凭证、贡献与操作全部留痕。</p></div><button class="btn primary" data-page="quote">＋ 从询价建单</button></div>
+      <div class="source-line"><b>模拟口径：</b>月度总量对齐 150 票 / 1,020 柜；以下仅展示 5 条匿名样例，状态与时间不代表真实订单。</div><div class="filters"><button class="on">本月 150</button><button>需介入 2</button><button>待资料 6</button><button>运输中 18</button><button>待 POD 4</button></div>
+      <div class="panel" style="overflow:auto"><table class="orders"><thead><tr><th>运单号</th><th>客户 / 路线</th><th>当前环节</th><th>ETA / SLA</th><th>责任人</th><th>风险</th></tr></thead><tbody>
+        <tr data-page="tracking"><td>AFA-SIM-017</td><td>EPZ 光伏客户 A<br><small>蒙巴萨 → Athi River</small></td><td><span class="pill p-orange">海关查验</span></td><td>8 月 8 日 16:00</td><td>Austin</td><td><span class="pill p-red">可能延误</span></td></tr>
+        <tr><td>AFA-SIM-021</td><td>EPZ 光伏客户 B<br><small>蒙巴萨 → Konza</small></td><td><span class="pill p-blue">待确认报价</span></td><td>尚未锁定</td><td>Gavin</td><td><span class="pill p-orange">低置信</span></td></tr>
+        <tr><td>AFA-SIM-088</td><td>EPZ 光伏客户 A<br><small>JKIA → Athi River</small></td><td><span class="pill p-green">已送达</span></td><td>POD 剩余 18m</td><td>James</td><td><span class="pill p-orange">待 POD</span></td></tr>
+        <tr><td>AFA-SIM-074</td><td>EPZ 光伏客户 C<br><small>蒙巴萨 → Tatu City</small></td><td><span class="pill p-blue">干线运输</span></td><td>今天 14:30</td><td>Mary</td><td><span class="pill p-green">正常</span></td></tr>
+        <tr><td>AFA-SIM-061</td><td>建筑客户 D<br><small>蒙巴萨 → Konza</small></td><td><span class="pill p-green">POD 已归档</span></td><td>已完成</td><td>Austin</td><td><span class="pill p-green">贡献待核</span></td></tr>
+      </tbody></table></div>
+    </section>
+
+    <section class="page" id="tracking">
+      <div class="intro"><div><h2>客户看到的追踪页</h2><p>免登录、可转发；隐藏内部毛利、供应商与风控备注。</p></div><button class="btn ghost" data-demo="copied">复制客户链接</button></div>
+      <div class="source-line" style="max-width:430px;margin-left:auto;margin-right:auto"><b>演示提醒：</b>平均干线运输 14 小时来自 Sigma 粗数；以下清关节点和 ETA 为模拟。</div><div class="tracking-shell"><div class="track-head"><div class="track-brand"><span>AFA</span> · 非快达</div><h3>货物正在海关查验</h3><p>AFA-SIM-017 · 40HQ</p><div class="eta"><span>预计送达<br><small>Athi River EPZ</small></span><strong>8 月 8 日<br>16:00 前</strong></div></div><div class="track-body"><div class="track-summary"><div class="mini"><small>起点</small><b>蒙巴萨港</b></div><div class="mini"><small>负责人</small><b>Austin · AFA</b></div></div><div class="timeline"><div class="step done"><div class="step-dot"></div><div><b>资料预审完成</b><small>8 月 6 日 08:42 · 提单、CoC 已核验</small></div></div><div class="step done"><div class="step-dot"></div><div><b>到港与换单完成</b><small>8 月 6 日 11:20 · 凭证已归档</small></div></div><div class="step now"><div class="step-dot"></div><div><b>海关查验中</b><small>今天 12:10 更新 · 运营正在现场跟进</small></div></div><div class="step"><div class="step-dot"></div><div><b>放行与提柜</b><small>预计今天 17:30</small></div></div><div class="step"><div class="step-dot"></div><div><b>干线运输</b><small>蒙巴萨 → Athi River · 基线约 14 小时</small></div></div><div class="step"><div class="step-dot"></div><div><b>送达与 POD</b><small>送达后 4 小时内回传电子回执</small></div></div></div><button class="btn primary" style="width:100%" data-demo="contact">联系专属运营</button></div></div>
+    </section>
+  </main>
+</div>
+<nav class="mobile-nav"><button class="active" data-page="dashboard"><i>⌂</i>控制塔</button><button data-page="quote"><i>✦</i>报价</button><button data-page="orders"><i>▤</i>运单</button><button data-page="tracking"><i>◎</i>追踪</button></nav>
+<div class="toast" id="toast">操作已记录</div>
+<script>
+  const titles={dashboard:'今日控制塔',quote:'询价与报价',orders:'运单中心',tracking:'客户追踪页'};
+  function go(id){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===id));document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===id));document.getElementById('page-title').textContent=titles[id]||'非快达控制塔';window.scrollTo({top:0,behavior:'smooth'})}
+  document.addEventListener('click',e=>{const page=e.target.closest('[data-page]');if(page){go(page.dataset.page);return}const demo=e.target.closest('[data-demo]');if(demo)toast({soon:'该模块不在 v0.1 原型范围',handled:'已指派 Austin 现场介入',reminded:'已通过 WhatsApp 催办 POD',brief:'管理层摘要已生成',saved:'报价草稿已保存',pdf:'客户报价单预览已生成',copied:'客户追踪链接已复制',contact:'正在连接专属运营'}[demo.dataset.demo]||'操作已记录')});
+  document.querySelectorAll('.filters button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.filters button').forEach(x=>x.classList.remove('on'));b.classList.add('on');toast('筛选已切换 · 原型展示')});
+  document.getElementById('confirm-quote').onclick=()=>{toast('报价已人工确认并发送给客户');setTimeout(()=>go('orders'),650)};
+  let timer;function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>el.classList.remove('show'),2400)}
+</script>
+</body>
+</html>

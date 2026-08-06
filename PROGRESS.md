@@ -41,6 +41,10 @@
 - ✅ 官网 V3：按《AFA Logo 设计方案 v1.0》切换新 VI（藏青 #052551 + 橙 #FB6601 + 新标准 logo）并重发布——**最新链接**：融资页 https://jiarunze.cn/p/feikuaida-aa5e22eb.html · 对外官网 https://jiarunze.cn/p/feikuaida-guanwang-2e3a0343.html（此前链接作废）。设计方案与 logo 入库 assets/brand/；错别字复查零残留（含 xlsx 补修 1 处）。
 - ⬜ BP 按新 VI 重制（绿视觉 beta1.0 与新 VI 不一致；商业模型与规模化插页同步换色）。
 
+## 2026-08-07
+- ✅ 三端产品原型完成：运营后台控制塔、Sigma 经营数据大屏、WhatsApp 客户助手、手机订单 H5 与统一演示入口；全部使用匿名 `AFA-SIM-*` 模拟订单。
+- ✅ 原型纳入公司域名静态构建：统一入口 `/demo/`，各端使用稳定独立路径；`robots.txt` 与响应头双重 noindex，不从对外官网导航进入。
+
 - ✅ 正式域名与静态站构建就绪：域名 **afafreight.com**（阿里云国际站已注册）→ Cloudflare Pages 托管。新增 `src/build_dist.py` 产出 `dist/`（首页=对外官网可收录+SEO/OG/favicon/结构化数据；融资页=隐蔽路径 `/ir/fc67ec2cbfbd/` noindex；含 404/robots/sitemap/_headers/_redirects）；邮箱统一为 **contact@afafreight.com**（原 africafastarrival.com 是未持有域名）。部署手册见 docs/04-operations/官网部署与域名配置.md。
 - ⬜ **待梁嘉文执行上线三步**：① 阿里云国际站把 NS 改到 Cloudflare；② Cloudflare Pages 连 GitHub `xoknight/AFA`（build 命令留空、输出 `dist`）并绑定域名；③ 开 Email Routing 转发。逐项对照部署文档 §6 自查清单。
 
