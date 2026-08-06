@@ -5,9 +5,8 @@
 import base64, io, pathlib, re
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-SITES = {  # 模板 → 输出（融资页 / 对外官网）
+SITES = {  # 模板 → 输出（仅融资页；对外官网自 2026-08-07 起改用外链图片，由 build_dist.py 直接处理）
     'site_financing.template.html': 'site_financing.html',
-    'site_corporate.template.html': 'site_corporate.html',
 }
 MAPS = ROOT / 'assets' / 'maps'
 PHOTOS = ROOT / 'assets' / 'photos'

@@ -3,21 +3,29 @@
 # 用法: python3 src/build_site.py && python3 src/build_dist.py
 #
 # 产出：
-#   dist/index.html              对外官网（可被搜索收录，含 SEO/OG/favicon）
+#   dist/index.html              对外官网 中文版（可被搜索收录，含 SEO/OG/favicon/hreflang）
+#   dist/en/index.html           对外官网 英文版（同一模板 + src/site_i18n.py 文案表渲染）
 #   dist/ir/<TOKEN>/index.html   融资页（隐蔽路径 + noindex/nofollow，无任何链接指向）
+#   dist/img/*                   官网图片（由 src/build_assets.py 从 VI 设计稿提取）
 #   dist/404.html  robots.txt  sitemap.xml  _headers  _redirects  favicon/og 图
 #
 # 融资页路径 token 写在 IR_TOKEN，改版不会变；如需作废旧链接，改这里再重新部署。
-import base64, io, pathlib, shutil
+import base64, io, pathlib, shutil, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DIST = ROOT / 'dist'
 DOMAIN = 'https://afafreight.com'
 IR_TOKEN = 'fc67ec2cbfbd'          # 融资页隐蔽路径；换掉即作废旧链接
-BUILD_DATE = '2026-08-06'
+BUILD_DATE = '2026-08-07'
 
-DESC = ('非快达 AFA（AFRICA FAST ARRIVAL DIGITAL TECHNOLOGY LIMITED）：以肯尼亚最大清关公司 Sigma 为业务基本盘，'
-        '提供中国—东非全条款（FOB/CIF/DAP/DDP）海空双通道全链条物流与清关服务，AI 原生的东非责任型数字货运平台。')
+sys.path.insert(0, str(ROOT / 'src'))
+from site_i18n import LOCALES, MAIL          # noqa: E402  官网双语文案表
+
+# 各语言版本的路径：中文在根，英文在 /en/
+PATHS = {'zh': '', 'en': 'en/'}
+
+# 融资页仍是中文单页，用中文口径做 head
+DESC = LOCALES['zh']['desc']
 
 # ---------- 图标与分享图 ----------
 
@@ -67,32 +75,37 @@ def write_icons():
 
 # ---------- HTML 头部改写 ----------
 
-def head_public(title: str) -> str:
+def head_public(t: dict, url: str) -> str:
+    """对外官网 head：允许收录 + 该语言的 SEO/OG + 双语 hreflang 互指。"""
+    alt = [f'<link rel="alternate" hreflang="{LOCALES[k]["lang"]}" href="{DOMAIN}/{v}">'
+           for k, v in PATHS.items()]
+    alt.append(f'<link rel="alternate" hreflang="x-default" href="{DOMAIN}/">')
     return f'''<meta name="robots" content="index,follow">
-<meta name="description" content="{DESC}">
-<meta name="keywords" content="非快达,AFA,肯尼亚物流,东非货代,蒙巴萨清关,内罗毕,DDP,双清包税,中国到肯尼亚,Africa Fast Arrival">
-<link rel="canonical" href="{DOMAIN}/">
+<meta name="description" content="{t['desc']}">
+<meta name="keywords" content="{t['keywords']}">
+<link rel="canonical" href="{url}">
+{chr(10).join(alt)}
 <meta name="theme-color" content="#052551">
 <link rel="icon" href="/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="非快达 AFA">
-<meta property="og:title" content="{title}">
-<meta property="og:description" content="{DESC}">
-<meta property="og:url" content="{DOMAIN}/">
+<meta property="og:site_name" content="AFA · AFRICA FAST ARRIVAL">
+<meta property="og:title" content="{t['title']}">
+<meta property="og:description" content="{t['desc']}">
+<meta property="og:url" content="{url}">
 <meta property="og:image" content="{DOMAIN}/og-image.png">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="{t['locale']}">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{title}">
-<meta name="twitter:description" content="{DESC}">
+<meta name="twitter:title" content="{t['title']}">
+<meta name="twitter:description" content="{t['desc']}">
 <meta name="twitter:image" content="{DOMAIN}/og-image.png">
 <script type="application/ld+json">
 {{"@context":"https://schema.org","@type":"Organization",
-"name":"非快达 AFA","alternateName":"AFRICA FAST ARRIVAL DIGITAL TECHNOLOGY LIMITED",
-"url":"{DOMAIN}/","logo":"{DOMAIN}/apple-touch-icon.png",
-"description":"{DESC}",
+"name":"AFRICA FAST ARRIVAL DIGITAL TECHNOLOGY LIMITED","alternateName":["AFA","非快达"],
+"url":"{DOMAIN}/","logo":"{DOMAIN}/apple-touch-icon.png","email":"{MAIL}",
+"description":"{t['desc']}",
 "areaServed":["KE","CN","TZ","UG","RW"],
-"knowsAbout":["国际货运代理","清关","DDP 双清包税","蒙巴萨—内罗毕走廊"]}}
+"knowsAbout":["freight forwarding","customs clearance","DDP","Mombasa-Nairobi corridor"]}}
 </script>'''
 
 
@@ -101,13 +114,56 @@ HEAD_PRIVATE = '''<meta name="robots" content="noindex,nofollow,noarchive,nosnip
 <link rel="icon" href="/favicon.png" type="image/png">
 <meta name="theme-color" content="#052551">'''
 
+ROBOTS_META = '<meta name="robots" content="noindex">'
+
+
+def render_corporate(locale: str) -> str:
+    """把双语文案表灌进对外官网模板，并换上该语言的 head。"""
+    t = LOCALES[locale]
+    other = LOCALES['en' if locale == 'zh' else 'zh']
+    html = (ROOT / 'src' / 'site_corporate.template.html').read_text(encoding='utf-8')
+
+    cards = '\n'.join(
+        f'      <div class="card"><img src="/img/icon_{key}.png" alt=""><h3>{name}</h3>\n'
+        f'        <p>{desc}</p></div>'
+        for key, name, desc in t['services'])
+    net = '\n'.join(f'      <div><h3>{name}</h3><p>{desc}</p></div>' for name, desc in t['network'])
+    tags = lambda ks: ''.join(f'<span class="tag">{x}</span>' for x in t[ks])
+
+    fields = {
+        'LANG': t['lang'], 'TITLE': t['title'], 'MAIL': MAIL,
+        'MAIL_SUBJECT': t['mail_subject'].replace(' ', '%20'),
+        'ALT_HREF': t['alt_href'], 'ALT_LABEL': t['alt_label'], 'ALT_LANG': other['lang'],
+        'NAV_CTA': t['nav_cta'],
+        'SERVICE_CARDS': cards, 'NET_ITEMS': net,
+        'CAP_TAGS': tags('cap_tags'), 'OPS_TAGS': tags('ops_tags'),
+    }
+    for i, label in enumerate(t['nav'], 1):
+        fields[f'NAV{i}'] = label
+    for key in ('hero_kicker', 'hero_h1', 'hero_sub', 'hero_en', 'hero_btn1', 'hero_btn2',
+                'mission_kicker', 'mission_big', 'mission_p1', 'mission_p2',
+                'svc_kicker', 'svc_h2', 'svc_lede',
+                'cap_kicker', 'cap_h2', 'cap_lede', 'cap_alt',
+                'ops_kicker', 'ops_h2', 'ops_lede', 'ops_alt',
+                'net_kicker', 'net_h2', 'net_lede', 'net_alt',
+                'con_kicker', 'con_h2', 'con_lede', 'con_btn',
+                'con_lbl1', 'con_note1', 'con_lbl2', 'con_note2',
+                'con_lbl3', 'con_val3', 'con_note3',
+                'foot_tagline', 'foot_note', 'foot_copy'):
+        fields[key.upper()] = t[key]
+
+    for k, v in fields.items():
+        html = html.replace('{{' + k + '}}', v)
+    assert '{{' not in html, f'{locale}: 模板里还有没替换的占位符 {html[html.index("{{"):][:40]}'
+
+    url = f'{DOMAIN}/{PATHS[locale]}'
+    return html.replace(ROBOTS_META, head_public(t, url), 1)
+
 
 def transform(src: pathlib.Path, public: bool) -> str:
     html = src.read_text(encoding='utf-8')
-    title = html.split('<title>', 1)[1].split('</title>', 1)[0]
-    old = '<meta name="robots" content="noindex">'
-    assert old in html, f'{src.name}: 未找到 robots meta，模板结构变了'
-    return html.replace(old, head_public(title) if public else HEAD_PRIVATE, 1)
+    assert ROBOTS_META in html, f'{src.name}: 未找到 robots meta，模板结构变了'
+    return html.replace(ROBOTS_META, HEAD_PRIVATE, 1)
 
 
 # ---------- 附属文件 ----------
@@ -141,16 +197,19 @@ Disallow: /ir/
 Sitemap: {DOMAIN}/sitemap.xml
 '''
 
-SITEMAP = f'''<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>{DOMAIN}/</loc>
-    <lastmod>{BUILD_DATE}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-</urlset>
-'''
+def sitemap() -> str:
+    def entry(path, prio):
+        alt = '\n'.join(
+            f'      <xhtml:link rel="alternate" hreflang="{LOCALES[k]["lang"]}" href="{DOMAIN}/{v}"/>'
+            for k, v in PATHS.items())
+        return (f'  <url>\n    <loc>{DOMAIN}/{path}</loc>\n{alt}\n'
+                f'    <lastmod>{BUILD_DATE}</lastmod>\n    <changefreq>weekly</changefreq>\n'
+                f'    <priority>{prio}</priority>\n  </url>')
+    urls = '\n'.join(entry(PATHS[k], p) for k, p in (('zh', '1.0'), ('en', '0.9')))
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n'
+            '        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'
+            f'{urls}\n</urlset>\n')
 
 # Pages 的 _headers：安全响应头 + 融资页强制 noindex（即使链接外泄也不入索引）
 HEADERS = '''/*
@@ -167,6 +226,9 @@ HEADERS = '''/*
 
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
+
+/img/*
+  Cache-Control: public, max-age=2592000
 
 /og-image.png
   Cache-Control: public, max-age=604800
@@ -188,14 +250,23 @@ def main():
     ir_dir = DIST / 'ir' / IR_TOKEN
     ir_dir.mkdir(parents=True)
 
-    (DIST / 'index.html').write_text(
-        transform(ROOT / 'src' / 'site_corporate.html', public=True), encoding='utf-8')
+    # 对外官网直接用模板（图片走 /img/ 外链，不内嵌）；融资页仍是 build_site.py 产的单文件
+    img = DIST / 'img'
+    img.mkdir()
+    for p in sorted((ROOT / 'assets' / 'site').iterdir()):
+        if p.suffix.lower() in ('.jpg', '.png', '.webp', '.svg'):
+            shutil.copy2(p, img / p.name)
+
+    for locale, path in PATHS.items():
+        page = DIST / path / 'index.html'
+        page.parent.mkdir(parents=True, exist_ok=True)
+        page.write_text(render_corporate(locale), encoding='utf-8')
     (ir_dir / 'index.html').write_text(
         transform(ROOT / 'src' / 'site_financing.html', public=False), encoding='utf-8')
 
     (DIST / '404.html').write_text(NOT_FOUND, encoding='utf-8')
     (DIST / 'robots.txt').write_text(ROBOTS, encoding='utf-8')
-    (DIST / 'sitemap.xml').write_text(SITEMAP, encoding='utf-8')
+    (DIST / 'sitemap.xml').write_text(sitemap(), encoding='utf-8')
     (DIST / '_headers').write_text(HEADERS, encoding='utf-8')
     (DIST / '_redirects').write_text(REDIRECTS, encoding='utf-8')
 
@@ -209,8 +280,9 @@ def main():
     for p in sorted(DIST.rglob('*')):
         if p.is_file():
             print(f'  {p.relative_to(DIST)}  {p.stat().st_size/1024:.0f} KB')
-    print(f'\n对外官网  {DOMAIN}/')
-    print(f'融资页    {DOMAIN}/ir/{IR_TOKEN}/')
+    print(f'\n对外官网 中文  {DOMAIN}/')
+    print(f'对外官网 English  {DOMAIN}/en/')
+    print(f'融资页（隐蔽路径）  {DOMAIN}/ir/{IR_TOKEN}/')
 
 
 if __name__ == '__main__':

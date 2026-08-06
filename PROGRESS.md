@@ -43,7 +43,15 @@
 
 - ✅ 正式域名与静态站构建就绪：域名 **afafreight.com**（阿里云国际站已注册）→ Cloudflare Pages 托管。新增 `src/build_dist.py` 产出 `dist/`（首页=对外官网可收录+SEO/OG/favicon/结构化数据；融资页=隐蔽路径 `/ir/fc67ec2cbfbd/` noindex；含 404/robots/sitemap/_headers/_redirects）；邮箱统一为 **contact@afafreight.com**（原 africafastarrival.com 是未持有域名）。部署手册见 docs/04-operations/官网部署与域名配置.md。
 - ⬜ **待梁嘉文执行上线三步**：① 阿里云国际站把 NS 改到 Cloudflare；② Cloudflare Pages 连 GitHub `xoknight/AFA`（build 命令留空、输出 `dist`）并绑定域名；③ 开 Email Routing 转发。逐项对照部署文档 §6 自查清单。
-- ⬜ 官网英文版 `/en/`（P1，面向肯尼亚本地客户与国际同行）。
+
+## 2026-08-07
+- ✅ **对外官网 V4 重做（品牌站定位）**：按 CEO 要求做「轻」——只讲使命、业务板块与商务信息，去掉此前的 Sigma 基本盘细节、线路经济性、团队页等偏融资/内部口径内容；融资内容全部留在融资页，两站彻底分离。
+- ✅ **中英双语上线**：`/` 中文 + `/en/` 英文，导航与页脚各一个切换入口，两页 hreflang 互指、x-default 指中文；`src/site_i18n.py` 是唯一文案表，`site_corporate.template.html` 只剩版式。
+- ✅ **VI 设计稿图片入库并上站**：`src/build_assets.py` 从《AFA Logo 设计方案 v1.0》PDF 提取 6 张品牌应用效果图 + 12 个业务图标（裁掉英文标签）+ 反白 logo → `assets/site/`；官网改为图片外链（首页 17KB + 图片按需加载），不再是单文件内嵌。
+- ✅ 修正遗留问题：旧页脚「本页面为临时官网，正式域名启用后迁移」已随改版删除；邮箱统一 contact@afafreight.com。
+- ⚠️ 图片性质：均为品牌应用效果图（AI 生成的 mockup，非自有资产实拍），页脚已标注「本站部分图片为品牌视觉应用效果图，仅用于形象展示」。实拍替换列入待办。
+- ⬜ 内罗毕/蒙巴萨现场实拍替换 mockup（8/15 CEO 抵内罗毕时拍）。
+- ⬜ 官网在线询价表单（Pages Functions → 邮件/微信）。
 
 ## 下一步（一步一步来）
 1. 详细版 BP V5 入库；2. 投资人名单三分类（朱学峰）；3. skills/ 沉淀第一个工作流（Sigma 数据盘点）；4. 评估飞书镜像时点。
