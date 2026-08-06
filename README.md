@@ -22,6 +22,8 @@
 | [sop/](sop) | 例行事务 SOP（先占位） | 🌱 |
 | [assets/pdf/](assets/pdf) | 对外交付物 PDF | ✅ |
 | [assets/maps/](assets/maps) | 地图与图形资产（SVG 源文件） | ✅ |
+| [src/](src) | 官网与 BP 的 HTML 模板与构建脚本（`build_site.py` → 单文件页；`build_dist.py` → 站点目录） | ✅ |
+| [dist/](dist) | **构建产物**：afafreight.com 静态站，Cloudflare Pages 直接发布（勿手改，改模板后重新构建） | ✅ |
 
 ## 当前状态（2026-08-01）
 

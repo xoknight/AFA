@@ -41,5 +41,9 @@
 - ✅ 官网 V3：按《AFA Logo 设计方案 v1.0》切换新 VI（藏青 #052551 + 橙 #FB6601 + 新标准 logo）并重发布——**最新链接**：融资页 https://jiarunze.cn/p/feikuaida-aa5e22eb.html · 对外官网 https://jiarunze.cn/p/feikuaida-guanwang-2e3a0343.html（此前链接作废）。设计方案与 logo 入库 assets/brand/；错别字复查零残留（含 xlsx 补修 1 处）。
 - ⬜ BP 按新 VI 重制（绿视觉 beta1.0 与新 VI 不一致；商业模型与规模化插页同步换色）。
 
+- ✅ 正式域名与静态站构建就绪：域名 **afafreight.com**（阿里云国际站已注册）→ Cloudflare Pages 托管。新增 `src/build_dist.py` 产出 `dist/`（首页=对外官网可收录+SEO/OG/favicon/结构化数据；融资页=隐蔽路径 `/ir/fc67ec2cbfbd/` noindex；含 404/robots/sitemap/_headers/_redirects）；邮箱统一为 **contact@afafreight.com**（原 africafastarrival.com 是未持有域名）。部署手册见 docs/04-operations/官网部署与域名配置.md。
+- ⬜ **待梁嘉文执行上线三步**：① 阿里云国际站把 NS 改到 Cloudflare；② Cloudflare Pages 连 GitHub `xoknight/AFA`（build 命令留空、输出 `dist`）并绑定域名；③ 开 Email Routing 转发。逐项对照部署文档 §6 自查清单。
+- ⬜ 官网英文版 `/en/`（P1，面向肯尼亚本地客户与国际同行）。
+
 ## 下一步（一步一步来）
 1. 详细版 BP V5 入库；2. 投资人名单三分类（朱学峰）；3. skills/ 沉淀第一个工作流（Sigma 数据盘点）；4. 评估飞书镜像时点。

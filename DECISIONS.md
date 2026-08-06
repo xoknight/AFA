@@ -1,5 +1,14 @@
 # 决策日志（倒序）
 
+## 2026-08-06（夜 · 官网域名）
+- **正式域名定为 `afafreight.com`**（已在阿里云国际站注册）。原官网文案里的 `contact@africafastarrival.com` 是未持有域名，全部改为 **contact@afafreight.com**。
+- **托管方案**：Cloudflare Pages 静态托管 + Cloudflare DNS + Cloudflare Email Routing（均免费额度）。域名**不转移注册商**，只把 NS 从阿里云改到 Cloudflare。不落地大陆服务器，因此不做 ICP 备案。
+- **部署方式**：Cloudflare Pages 连 GitHub 私有仓库 `xoknight/AFA`，production 分支 main，构建命令留空、输出目录 `dist/`（站点在本地构建后提交，Cloudflare 端不跑构建）。授权时仅勾选本仓库。
+- **两页分离口径**：对外官网放根路径 `/` 并**开放搜索收录**（此前 noindex 的临时状态取消）；融资页放**隐蔽路径 `/ir/<token>/`**，noindex/nofollow + robots 禁爬 + 站内零链接。明确其性质是「猜不到」而非「进不去」：链接转发即等于公开，只点对点发已进入实质沟通的投资人；疑似外泄即换 token 作废旧链接。投资人规模上来后升级 Cloudflare Access 邮箱验证码。
+- **企业邮箱**：先用 Email Routing 做转发（contact/info/sales/gavin + catch-all → Gavin 邮箱），**只收不发**；正式企业邮箱（Google Workspace 或腾讯企业邮）与 DMARC 列为 P1，届时须先关 Email Routing 再换 MX。
+- **已识别取舍**：Cloudflare 免费版大陆访问不稳定，国内投资人沟通仍以 PDF 为主；官网当前全中文，**英文版列为 P1**（afafreight.com 面向肯尼亚本地客户与国际同行，理应英文优先）。
+- 部署与配置全过程见 docs/04-operations/官网部署与域名配置.md。
+
 ## 2026-08-06（晚）
 - **品牌 VI 定版**（依据《AFA Logo 设计方案 Prima Versio 1.0》，XINFENG CHINA 出品）：标准 logo = 几何化 AFA 字母 + 橙色弧形箭头；标准色 **藏青 #052551**（专业/可靠/科技）+ **橙 #FB6601**（速度/活力）。官网双页已从绿视觉切换为藏青+橙新 VI；设计方案 PDF 与标准 logo 入库 assets/brand/（绿版 logo 存档为 logo_green_v1.png）。注意：beta1.0 详细版 BP（绿视觉）与新 VI 不一致，下版 BP 需按新 VI 重制。
 - **正名复查**：全库文本零残留；补修 Sigma业务数据盘点表.xlsx 1 处「飞快达」。

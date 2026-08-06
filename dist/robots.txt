@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /ir/
+
+Sitemap: https://afafreight.com/sitemap.xml

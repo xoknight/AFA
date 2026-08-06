@@ -1,0 +1,4 @@
+# 旧链接与常见入口 → 首页；www→根域用 Cloudflare Redirect Rule（见部署文档）
+/index.htm    /    301
+/home         /    301
+/investors    /    301
