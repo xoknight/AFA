@@ -1,7 +1,7 @@
 # AFA — 非快达 · Africa Fast Arrival
 
 > **AFRICA FAST ARRIVAL DIGITAL TECHNOLOGY LIMITED**
-> 本仓库是飞快达项目的**单一真值源（Single Source of Truth）**：战略、市场、业务、融资、合规与人物分工的最新口径以 `main` 分支为准，对外材料（BP、架构方案）由本仓库内容生成。
+> 本仓库是非快达项目的**单一真值源（Single Source of Truth）**：战略、市场、业务、融资、合规与人物分工的最新口径以 `main` 分支为准，对外材料（BP、架构方案）由本仓库内容生成。
 > 组织方法论参考 [Avalon](https://github.com/xoknight/Avalon)（以智法数科 WiseLaw 为首个参考组织的 AI Native 组织协作基座）：**AFA 以 Sigma（肯尼亚最大清关公司）为业务基本盘，复制同一套「真实业务 → 知识外化 → 数字员工 → 平台化」路径**。当前不上飞书，先用 GitHub 做知识与版本基座，一步一步来。
 
 ## 一句话定位
