@@ -12,7 +12,7 @@
 
 ## 2026-08-04
 - ✅ 融资官网上线准备：基于精简版 BP（可外发口径）制作单文件响应式融资官网 `src/site_financing.html`（内嵌全部地图 SVG，约 538KB，移动端优先）；发布用 `skills/html-publish`（Lawrence 提供的一键发布 skill）已入库。
-- ✅ 融资官网已发布公网（梁嘉文本地执行 publish.sh）：**https://jiarunze.cn/p/feikuaida.html**（noindex 不被搜索收录；改版后重跑 `python3 src/build_site.py` + `bash skills/html-publish/publish.sh src/site_financing.html 非快达融资官网` 即更新）
+- ✅ 融资官网已发布公网（梁嘉文本地执行 publish.sh）：**https://jiarunze.cn/p/feikuaida.html**（noindex 不被搜索收录；注：发布服务对中文页面名会另生成随机页名，每次发布以终端实际输出链接为准）
 - ✅ 团队头像：官网已留统一风格头像位（占位姓氏版）→ 2026-08-05 已由 beta1.0 BP 提取真实头像替换。
 
 ## 2026-08-05
