@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>商业模型与规模化 · 非快达 BP 插页</title>
+<style>
+  @page { size: 1280px 720px; margin: 0; }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;color:#17181a;}
+  .slide{width:1280px;height:720px;background:#faf9f7;position:relative;overflow:hidden;padding:46px 64px 40px;}
+  .kickbar{width:56px;height:4px;background:#ff9e19;margin-bottom:10px;}
+  .kicker{font-size:12px;letter-spacing:4px;color:#348f41;font-weight:800;}
+  h1{font-size:30px;font-weight:900;margin-top:6px;color:#17181a;}
+  .sub{font-size:12.5px;color:#8a8b8f;margin-top:5px;}
+  .cols{display:flex;gap:22px;margin-top:22px;}
+  /* 左：三级火箭 */
+  .left{flex:1.08;display:flex;flex-direction:column;gap:10px;}
+  .stage{border-radius:12px;padding:13px 16px;display:flex;gap:14px;align-items:flex-start;}
+  .s1{background:#e4f0e5;border-left:5px solid #348f41;}
+  .s2{background:#fdf2e0;border-left:5px solid #ff9e19;}
+  .s3{background:#17181a;border-left:5px solid #e1251a;}
+  .stage .no{font-size:22px;font-weight:900;color:#348f41;flex:none;width:30px;line-height:1.2;}
+  .s2 .no{color:#e18a0e;} .s3 .no{color:#ffc978;}
+  .stage h3{font-size:15.5px;font-weight:900;color:#17181a;}
+  .s3 h3{color:#fff;}
+  .stage .tag{font-size:10.5px;font-weight:800;color:#348f41;margin-left:8px;}
+  .s2 .tag{color:#e18a0e;} .s3 .tag{color:#ffc978;}
+  .stage p{font-size:11.8px;color:#3a3b3e;line-height:1.62;margin-top:4px;}
+  .s3 p{color:#c9cccc;}
+  .stage b{color:#17181a;} .s3 b{color:#fff;}
+  /* 右：单位经济 */
+  .right{flex:0.92;}
+  .panel{background:#fff;border-radius:12px;box-shadow:0 2px 10px rgba(23,24,26,.06);padding:15px 18px;}
+  .panel h4{font-size:13.5px;font-weight:900;color:#348f41;letter-spacing:1px;margin-bottom:9px;}
+  table{width:100%;border-collapse:collapse;font-size:11.3px;}
+  th{color:#8a8b8f;font-weight:700;text-align:left;padding:5px 6px;border-bottom:1.5px solid #e2e6e1;}
+  td{padding:6.5px 6px;border-bottom:1px solid #eef1ee;color:#3a3b3e;line-height:1.45;vertical-align:top;}
+  td b{color:#17181a;}
+  .gr{color:#2b7836;font-weight:800;}
+  .or{color:#e18a0e;font-weight:800;}
+  .note3{margin-top:10px;background:#e4f0e5;border-radius:9px;padding:9px 12px;font-size:11.3px;color:#24512b;line-height:1.6;}
+  /* 底部黑带 */
+  .band{position:absolute;left:64px;right:64px;bottom:34px;background:#17181a;border-radius:12px;padding:14px 22px;display:flex;gap:26px;align-items:center;}
+  .band .cell{flex:1;}
+  .band .k{font-size:10px;letter-spacing:2px;color:#ffc978;font-weight:800;}
+  .band .v{font-size:15px;font-weight:900;color:#fff;margin-top:3px;}
+  .band .d{font-size:10.5px;color:#a9aaae;margin-top:2px;line-height:1.5;}
+  .band .sep{width:1px;height:44px;background:rgba(255,255,255,.14);flex:none;}
+  .pageno{position:absolute;bottom:12px;right:24px;font-size:10px;color:#a9aaae;}
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="kickbar"></div>
+  <div class="kicker">BUSINESS MODEL &amp; SCALE-UP</div>
+  <h1>商业模型与规模化：三级火箭</h1>
+  <div class="sub">自营履约只是点火器——每一级的产出，是下一级的燃料。</div>
+
+  <div class="cols">
+    <div class="left">
+      <div class="stage s1">
+        <div class="no">01</div>
+        <div>
+          <h3>履约公司 <span class="tag">M0–M18 · 现在</span></h3>
+          <p>全条款自营履约（CIF 接管起步），贡献率 8%→15%。真正的产出是两样复利资产：<b>数据</b>（价格/时效/归类/异常）与<b>信用</b>（货主付款、车队履约、单单证据链）。</p>
+        </div>
+      </div>
+      <div class="stage s2">
+        <div class="no">02</div>
+        <div>
+          <h3>网络效应 <span class="tag">M18–M36</span></h3>
+          <p>三个飞轮互相加速：<b>密度</b>（回程配载 5%→25%，单位成本降）· <b>伙伴</b>（中国专线货代以我们为「目的港标配」，批量订单自动流入）· <b>供给</b>（稳定货源+快付，车队涌入）。</p>
+        </div>
+      </div>
+      <div class="stage s3">
+        <div class="no">03</div>
+        <div>
+          <h3>贸易基础设施 <span class="tag">M36+</span></h3>
+          <p><b>清关即服务 API</b>（电商与货运平台按单接入）· 控制塔 SaaS · <b>供应链金融</b>（履约级风控数据）· 东非五国复制——收入天花板从「自营运营能力」变为<b>整个市场的单量</b>。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="panel">
+        <h4>单位经济：一单养三单</h4>
+        <table>
+          <tr><th>产品</th><th>单均贡献</th><th>特征</th></tr>
+          <tr><td><b>CIF 到港接管</b>（发动机）<br>单均收入 $2,470</td><td class="gr">$200–370<br>8%→15%</td><td>线性，摊固定成本、攒数据</td></tr>
+          <tr><td>订舱+保险佣金（附着）</td><td class="gr">+$150–250</td><td>零采购成本，近纯利</td></tr>
+          <tr><td>回程配载（车已在路上）</td><td class="gr">+$150–250</td><td>纯增量毛利</td></tr>
+          <tr><td>空运专线（JKIA）</td><td class="gr">15–20%</td><td>高货值高时效通道</td></tr>
+          <tr><td>清关即服务 / SaaS（三级）</td><td class="or">~85–100% 毛利</td><td><b>按全市场单量收费</b></td></tr>
+        </table>
+        <div class="note3">每一单履约自动孕育三个近纯利衍生单——<b>单量不变、单均贡献持续变厚</b>，这就是贡献率 8%→15% 爬坡的微观结构。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="cell"><div class="k">单票层面</div><div class="v">第一天就正</div><div class="d">贡献率 ≥8% 是接单红线，亏钱的单不接</div></div>
+    <div class="sep"></div>
+    <div class="cell"><div class="k">月度经营</div><div class="v">M12–M15 打平</div><div class="d">353–440 单/月覆盖固定成本 $30k</div></div>
+    <div class="sep"></div>
+    <div class="cell"><div class="k">会计年度</div><div class="v">2029 上半年转正</div><div class="d">2027–28 为选择性亏损：利润再投第二走廊</div></div>
+    <div class="sep"></div>
+    <div class="cell"><div class="k">成本三道闸</div><div class="v">AI 人效 · 闸门 · 现金</div><div class="d">单量×3 人力≤×1.5；闸门未达标扩张冻结；13 周现金预测</div></div>
+  </div>
+  <div class="pageno">非快达 · AFRICA FAST ARRIVAL</div>
+</div>
+</body>
+</html>
