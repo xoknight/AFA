@@ -67,12 +67,13 @@ ZH = {
 
     'net_kicker': 'Network',
     'net_h2': '服务网络',
-    'net_lede': '以蒙巴萨—内罗毕走廊为主轴，向东非腹地延伸。',
+    'net_lede': '以蒙巴萨—内罗毕走廊为主轴，向东非腹地延伸，并承接东非至美国的出口通道。',
     'network': [
         ('中国', '华南、华东主要港口与机场集货出运'),
         ('蒙巴萨', '东非门户港，海运到港、清关与拖车'),
         ('内罗毕', '业务与交付中心，空运清关、仓储与末端派送'),
-        ('东非共同体', '向邻国延伸的跨境陆运安排'),
+        ('东非共同体', '跨境陆运延伸：乌干达、坦桑尼亚、卢旺达'),
+        ('美国', '东非至美国出口通道，海运与空运，含出口报关与目的地清关'),
     ],
     'net_alt': '配送车队与场站',
 
@@ -160,12 +161,15 @@ EN = {
 
     'net_kicker': 'Network',
     'net_h2': 'Where we operate',
-    'net_lede': 'Anchored on the Mombasa–Nairobi corridor, extending into the East African interior.',
+    'net_lede': 'Anchored on the Mombasa–Nairobi corridor, extending into the East African interior and '
+                'outbound to the United States.',
     'network': [
         ('China', 'Consolidation and departure via major South and East China ports and airports'),
         ('Mombasa', 'East Africa gateway port: arrival, clearance and haulage'),
         ('Nairobi', 'Operations and delivery hub: air clearance, warehousing and last-mile'),
-        ('EAC', 'Cross-border road movement into neighbouring markets'),
+        ('East African Community', 'Cross-border road movement into Uganda, Tanzania and Rwanda'),
+        ('United States', 'East Africa to US export lane: sea and air, with export declaration and destination '
+                          'clearance'),
     ],
     'net_alt': 'Delivery fleet and depot',
 
