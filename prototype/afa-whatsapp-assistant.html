@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <title>AFA WhatsApp 客户助手 Demo</title>
+  <style>
+    :root{--wa:#075e54;--wa2:#128c7e;--lime:#d9fdd3;--paper:#efeae2;--ink:#17202a;--muted:#667781;--line:#d7dfe2;--orange:#fb6601;--navy:#052551}
+    *{box-sizing:border-box}html,body{height:100%;margin:0;font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;background:#d7dedc;color:var(--ink)}button,input{font:inherit}
+    body{display:grid;place-items:center;padding:18px}.phone{width:min(100%,430px);height:min(880px,calc(100vh - 36px));min-height:640px;background:var(--paper);border-radius:30px;overflow:hidden;box-shadow:0 24px 80px rgba(17,45,42,.22);display:flex;flex-direction:column;border:7px solid #15211f}
+    .status{height:25px;background:var(--wa);color:#d8f1ed;display:flex;align-items:center;justify-content:space-between;padding:0 16px;font-size:10px}.chat-head{background:var(--wa);color:#fff;padding:10px 12px;display:grid;grid-template-columns:auto 40px 1fr auto;align-items:center;gap:8px}.back{font-size:21px}.logo{width:40px;height:40px;border-radius:50%;background:#fff;object-fit:contain;padding:5px}.name b{display:block;font-size:14px}.name small{display:block;color:#c5ded9;font-size:10px}.head-actions{font-size:18px;letter-spacing:8px;white-space:nowrap}
+    .demo-note{background:#fff4ce;color:#745d12;text-align:center;padding:6px 12px;font-size:9px;border-bottom:1px solid #e7d99e}.chat{flex:1;overflow:auto;padding:12px 11px 20px;background-color:var(--paper);background-image:radial-gradient(rgba(76,94,85,.06) 1px,transparent 1px);background-size:17px 17px;scroll-behavior:smooth}.day{text-align:center;margin:5px 0 13px}.day span{background:#fff;color:#6c7c83;border-radius:7px;padding:4px 8px;font-size:9px;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+    .row{display:flex;margin:6px 0}.row.me{justify-content:flex-end}.bubble{max-width:86%;background:#fff;padding:8px 9px 6px;border-radius:9px;box-shadow:0 1px 2px rgba(0,0,0,.09);font-size:12px;position:relative}.row.me .bubble{background:var(--lime)}.bubble p{margin:0 0 5px}.bubble p:last-child{margin:0}.time{text-align:right;color:#849299;font-size:8px;margin-left:12px}.tick{color:#53a8d4;font-weight:800}
+    .order-card{margin-top:8px;border:1px solid #dbe2e3;border-radius:9px;overflow:hidden;background:#fff}.card-top{padding:10px;background:linear-gradient(135deg,var(--navy),#0b477f);color:#fff}.card-top small{color:#a9bfd8;font-size:9px}.card-top b{display:block;font-size:14px;margin:2px 0}.status-line{display:flex;align-items:center;gap:7px;font-size:10px}.pulse{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 0 4px rgba(251,102,1,.2)}.card-body{padding:10px}.route{display:grid;grid-template-columns:auto 1fr auto;gap:7px;align-items:center;font-size:10px}.track{height:3px;background:#dce4e8}.track i{display:block;height:100%;width:58%;background:var(--orange)}.eta{display:flex;justify-content:space-between;background:#f3f6f8;padding:8px;margin-top:9px;border-radius:7px;color:#61717d;font-size:9px}.eta b{display:block;color:var(--ink);font-size:11px}.card-btn{display:block;width:100%;border:0;border-top:1px solid #e2e6e8;background:#fff;color:#08766b;padding:10px;font-size:11px;font-weight:800;text-align:center;text-decoration:none}
+    .quick{padding:7px 10px;background:#f7f5f1;display:flex;gap:7px;overflow:auto;border-top:1px solid #ddd8d0}.quick button{flex:0 0 auto;border:1px solid #cdd8d7;background:#fff;color:#08766b;border-radius:99px;padding:7px 10px;font-size:10px}.composer{display:grid;grid-template-columns:1fr 38px;gap:7px;padding:8px;background:#f0f2f5}.input-wrap{background:#fff;border-radius:22px;display:flex;align-items:center;padding:0 12px;gap:7px}.input-wrap span{color:#718086}.input-wrap input{border:0;outline:0;width:100%;padding:10px 0;font-size:12px}.send{border:0;border-radius:50%;background:var(--wa2);color:#fff;font-size:17px}.typing{display:inline-flex;gap:3px;padding:4px}.typing i{width:5px;height:5px;border-radius:50%;background:#85959b;animation:dot 1s infinite}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}@keyframes dot{50%{transform:translateY(-3px)}}
+    @media(max-width:480px){body{padding:0}.phone{width:100%;height:100%;max-height:none;min-height:0;border:0;border-radius:0}.status{padding-top:env(safe-area-inset-top);height:calc(25px + env(safe-area-inset-top))}.composer{padding-bottom:calc(8px + env(safe-area-inset-bottom))}}
+  </style>
+</head>
+<body>
+<main class="phone" aria-label="AFA WhatsApp 客户助手演示">
+  <div class="status"><span>9:41</span><span>▮▮▮　⌁　92%</span></div>
+  <header class="chat-head"><span class="back">‹</span><img class="logo" src="../assets/brand/logo.png" alt="AFA"><div class="name"><b>AFA 非快达客户助手 ✓</b><small>在线 · AI 服务，人工复核关键操作</small></div><div class="head-actions">⌕ ⋮</div></header>
+  <div class="demo-note">Demo：订单与时间为模拟，规模和线路参考 Sigma 首轮数据</div>
+  <section class="chat" id="chat" aria-live="polite">
+    <div class="day"><span>今天</span></div>
+    <div class="row"><div class="bubble"><p>你好，我是 AFA 客户助手 👋</p><p>你可以直接问我：</p><p>• 我的货到哪里了？<br>• 还缺什么资料？<br>• 预计什么时候送达？</p><div class="time">09:40</div></div></div>
+    <div class="row me"><div class="bubble"><p>帮我查一下 AFA-SIM-017</p><div class="time">09:41 <span class="tick">✓✓</span></div></div></div>
+    <div class="row"><div class="bubble"><p>查到了。这票货目前正在<strong>海关查验</strong>，AFA 现场运营正在跟进。</p><div class="order-card"><div class="card-top"><small>AFA-SIM-017 · 40HQ · CIF 到港接管</small><b>EPZ 光伏客户 A</b><div class="status-line"><i class="pulse"></i>海关查验中</div></div><div class="card-body"><div class="route"><span>蒙巴萨港</span><div class="track"><i></i></div><span>Athi River EPZ</span></div><div class="eta"><span>预计送达<b>8 月 8 日 16:00 前</b></span><span>负责人<b>Austin</b></span></div></div><a class="card-btn" href="afa-customer-h5.html?order=AFA-SIM-017">查看完整进度与单据　›</a></div><div class="time">09:41</div></div></div>
+    <div class="row"><div class="bubble"><p>提醒：清关节点与 ETA 是 Demo 模拟；正式产品会以运营确认后的数据为准。</p><div class="time">09:41</div></div></div>
+  </section>
+  <div class="quick"><button data-q="status">查询订单</button><button data-q="docs">缺什么资料</button><button data-q="eta">预计送达时间</button><button data-q="human">转人工运营</button></div>
+  <footer class="composer"><div class="input-wrap"><span>☺</span><input id="input" aria-label="输入消息" placeholder="输入订单号或问题"><span>⌕</span></div><button class="send" id="send" aria-label="发送">➤</button></footer>
+</main>
+<script>
+  const chat=document.getElementById('chat'),input=document.getElementById('input');
+  const answers={
+    status:`<p>订单 <strong>AFA-SIM-017</strong> 正在海关查验，下一步是放行与提柜。</p><div class="order-card"><div class="card-top"><small>AFA-SIM-017 · 40HQ</small><b>蒙巴萨港 → Athi River EPZ</b><div class="status-line"><i class="pulse"></i>海关查验中</div></div><a class="card-btn" href="afa-customer-h5.html?order=AFA-SIM-017">打开订单详情　›</a></div>`,
+    docs:`<p>这票订单目前还需要：</p><p>1. CoC 正式文件<br>2. 提单最终扫描件</p><p>你可以直接在这里发送文件。上传后需由运营人工核验。</p>`,
+    eta:`<p>模拟 ETA 为 <strong>8 月 8 日 16:00 前</strong>。</p><p>Sigma 的蒙巴萨—内罗毕干线平均运输基线约 14 小时；清关时间仍待现场数据校准。</p>`,
+    human:`<p>已为你转接专属运营 <strong>Austin</strong>。人工服务将在群里继续回复，AI 不会执行改单、费用确认或付款操作。</p>`
+  };
+  const labels={status:'查询 AFA-SIM-017',docs:'还缺什么资料？',eta:'预计什么时候送达？',human:'帮我转人工运营'};
+  function now(){return new Date().toLocaleTimeString('zh-CN',{hour:'2-digit',minute:'2-digit',hour12:false})}
+  function add(kind,html){const row=document.createElement('div');row.className='row '+(kind==='me'?'me':'');row.innerHTML=`<div class="bubble">${html}<div class="time">${now()}${kind==='me'?' <span class="tick">✓✓</span>':''}</div></div>`;chat.appendChild(row);chat.scrollTop=chat.scrollHeight}
+  function ask(type,text){add('me',`<p>${text||labels[type]}</p>`);const typing=document.createElement('div');typing.className='row';typing.innerHTML='<div class="bubble"><span class="typing"><i></i><i></i><i></i></span></div>';chat.appendChild(typing);chat.scrollTop=chat.scrollHeight;setTimeout(()=>{typing.remove();add('bot',answers[type]||answers.status)},430)}
+  document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>ask(b.dataset.q));
+  function send(){const value=input.value.trim();if(!value)return;input.value='';let type=/资料|文件|coc|提单/i.test(value)?'docs':/时间|多久|eta|送达/i.test(value)?'eta':/人工|客服|投诉/i.test(value)?'human':'status';ask(type,value)}
+  document.getElementById('send').onclick=send;input.addEventListener('keydown',e=>{if(e.key==='Enter')send()});
+</script>
+</body>
+</html>
