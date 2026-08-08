@@ -45,6 +45,10 @@
 - ✅ 三端产品原型完成：运营后台控制塔、Sigma 经营数据大屏、WhatsApp 客户助手、手机订单 H5 与统一演示入口；全部使用匿名 `AFA-SIM-*` 模拟订单。
 - ✅ 原型纳入公司域名静态构建：统一入口 `/demo/`，各端使用稳定独立路径；`robots.txt` 与响应头双重 noindex，不从对外官网导航进入。
 
+## 2026-08-08
+- ✅ 原型系统 v0.2 重构：以 Sigma 清关九环节、真实报价结构、组织角色和《平台产品需求：三端与三类系统》为基线，新增平台/清关公司/车队/客服四角色后台、三类订单、Bond 预警、放行柜与预约车对齐、客户钱包、官方费用直付、费用责任和还箱绑尾款。
+- ✅ WhatsApp 与客户 H5 从“查单 Demo”升级为“清关咨询 → 服务组合 → 下单/查单 → 钱包分段付 → 九环节可视 → 单据/风险/评价”的完整客户旅程；数据大屏升级为经营与数字化 ROI 驾驶舱。
+
 - ✅ 正式域名与静态站构建就绪：域名 **afafreight.com**（阿里云国际站已注册）→ Cloudflare Pages 托管。新增 `src/build_dist.py` 产出 `dist/`（首页=对外官网可收录+SEO/OG/favicon/结构化数据；融资页=隐蔽路径 `/ir/fc67ec2cbfbd/` noindex；含 404/robots/sitemap/_headers/_redirects）；邮箱统一为 **contact@afafreight.com**（原 africafastarrival.com 是未持有域名）。部署手册见 docs/04-operations/官网部署与域名配置.md。
 - ⬜ **待梁嘉文执行上线三步**：① 阿里云国际站把 NS 改到 Cloudflare；② Cloudflare Pages 连 GitHub `xoknight/AFA`（build 命令留空、输出 `dist`）并绑定域名；③ 开 Email Routing 转发。逐项对照部署文档 §6 自查清单。
 

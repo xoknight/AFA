@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
-  <title>AFA 客户前端 Demo</title>
+  <title>AFA 客户前端 Demo · v0.2</title>
   <style>
     :root{--navy:#052551;--orange:#fb6601;--ink:#172033;--muted:#6e7b8e;--line:#dfe5ec;--bg:#f2f4f7}
     *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink)}body{padding:28px}.head{max-width:1080px;margin:0 auto 20px;display:flex;align-items:end;gap:18px}.head img{width:110px}.head h1{font-size:25px;color:var(--navy);margin:0}.head p{margin:4px 0 0;color:var(--muted);font-size:12px}.note{margin-left:auto;background:#fff3e9;color:#9d470b;border:1px solid #ffd6ba;padding:7px 10px;border-radius:8px;font-size:10px}.switch{display:none}.stage{max-width:1080px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:22px}.demo{min-width:0}.demo-head{display:flex;align-items:center;margin-bottom:9px}.demo-head b{color:var(--navy);font-size:13px}.demo-head span{margin-left:auto;color:var(--muted);font-size:10px}.frame{height:760px;background:#dfe4e8;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 12px 35px rgba(5,37,81,.08)}iframe{border:0;width:100%;height:100%}.flow{max-width:1080px;margin:18px auto 0;background:#fff;border:1px solid var(--line);padding:12px 15px;border-radius:12px;color:var(--muted);font-size:11px}.flow b{color:var(--navy)}.arrow{color:var(--orange);padding:0 6px}
@@ -12,13 +12,13 @@
   </style>
 </head>
 <body>
-  <header class="head"><img src="/img/afa-logo.png" alt="AFA"><div><h1>客户前端 Demo</h1><p>WhatsApp AI 助手 + 手机 H5 订单中心</p></div><div class="note">全部订单均为 Sigma 数据分布模拟</div></header>
+  <header class="head"><img src="/img/afa-logo.png" alt="AFA"><div><h1>客户前端 Demo · v0.2</h1><p>清关问答 → 三类服务下单 → 钱包与分段付 → 九环节可视</p></div><div class="note">基于 Sigma 8/8 一线流程重构</div></header>
   <div class="switch"><button class="active" data-show="wa">WhatsApp 助手</button><button data-show="h5">订单 H5</button></div>
   <main class="stage">
     <section class="demo active" id="wa"><div class="demo-head"><b>① 在聊天里查询</b><span>查状态 · 补资料 · ETA · 转人工</span></div><div class="frame"><iframe src="/demo/whatsapp/" title="WhatsApp 客户助手"></iframe></div></section>
     <section class="demo" id="h5"><div class="demo-head"><b>② 在 H5 看完整订单</b><span>订单列表 · 进度 · 单据 · 费用</span></div><div class="frame"><iframe src="/demo/orders/" title="AFA 手机订单中心"></iframe></div></section>
   </main>
-  <div class="flow"><b>推荐演示路径：</b>在 WhatsApp 点击“缺什么资料”<span class="arrow">→</span>点击订单卡片“查看完整进度与单据”<span class="arrow">→</span>进入 H5 单票详情<span class="arrow">→</span>查看运输节点、文件和费用摘要。</div>
+  <div class="flow"><b>推荐演示路径：</b>在 WhatsApp 点击“清关咨询”或询问费用<span class="arrow">→</span>打开订单卡片<span class="arrow">→</span>在 H5 查看九环节、Bond 风险、费用责任与官方凭证。</div>
   <script>document.querySelectorAll('[data-show]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-show]').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.demo').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.getElementById(b.dataset.show).classList.add('active')})</script>
 </body>
 </html>
