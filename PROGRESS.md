@@ -48,6 +48,7 @@
 ## 2026-08-08
 - ✅ 原型系统 v0.2 重构：以 Sigma 清关九环节、真实报价结构、组织角色和《平台产品需求：三端与三类系统》为基线，新增平台/清关公司/车队/客服四角色后台、三类订单、Bond 预警、放行柜与预约车对齐、客户钱包、官方费用直付、费用责任和还箱绑尾款。
 - ✅ WhatsApp 与客户 H5 从“查单 Demo”升级为“清关咨询 → 服务组合 → 下单/查单 → 钱包分段付 → 九环节可视 → 单据/风险/评价”的完整客户旅程；数据大屏升级为经营与数字化 ROI 驾驶舱。
+- ✅ 物流调度 astah 状态机模型原文完整归档至 `docs/08-product/物流调度需求分析-模型原文.md`；结合三端产品、Sigma 九环节与费用材料，形成 `物流调度全流程-详细字段设计-v0.3.md`，覆盖对象关系、字段字典、状态闸门、角色权限、预警和自动化事件。
 
 - ✅ 正式域名与静态站构建就绪：域名 **afafreight.com**（阿里云国际站已注册）→ Cloudflare Pages 托管。新增 `src/build_dist.py` 产出 `dist/`（首页=对外官网可收录+SEO/OG/favicon/结构化数据；融资页=隐蔽路径 `/ir/fc67ec2cbfbd/` noindex；含 404/robots/sitemap/_headers/_redirects）；邮箱统一为 **contact@afafreight.com**（原 africafastarrival.com 是未持有域名）。部署手册见 docs/04-operations/官网部署与域名配置.md。
 - ⬜ **待梁嘉文执行上线三步**：① 阿里云国际站把 NS 改到 Cloudflare；② Cloudflare Pages 连 GitHub `xoknight/AFA`（build 命令留空、输出 `dist`）并绑定域名；③ 开 Email Routing 转发。逐项对照部署文档 §6 自查清单。
